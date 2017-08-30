@@ -47,11 +47,12 @@ int main(){
 
   printf("\n\t=========Starting Expression Conversion Tests===========\n");
   //Write code to evaluate the following expression: 3x^3 - 5x^2 + 6 for x = 2.5.
-
-  float result = 0; //TODO write your expression here
-
+  //TODO write your expression here
+  double x = 2.5;
+  float result = 3*pow(x,3.0)-5*pow(x,2.0)+6;
+  
   assert(result == 21.625);
-
+  /*
   //Write code to evaluate the following expression: (4 × 10^8 + 2 × 10^-7) / (7 × 10^-6 + 2 × 10^8)
 
   result = 0;//TODO write your expression here
@@ -117,6 +118,6 @@ int main(){
   printf("\n\t\t....Fibonacci Tests Passed\n");
 
   printf("\n\t=========ALL TESTS PASSED===========\n");
-
+  */
   return 0;
 }
