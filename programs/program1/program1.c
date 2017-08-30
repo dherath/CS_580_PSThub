@@ -6,6 +6,7 @@
 int findNextMultiple(int number1, int number2){
 
   //TODO
+  return number1 + number2 - (number1%number2);
   
 }
 
@@ -60,7 +61,7 @@ int main(){
   assert(result == 2.0);
 
   printf("\n\t\t....Converting Expressions Tests Passed\n");
-  /*
+  
   printf("\n\t=========Starting Next Multiple Tests===========\n");
   //For given numbers find next multiple
   int number1 = 365, number2 = 7;
@@ -73,7 +74,7 @@ int main(){
   assert(1000 == findNextMultiple(number1,number2));
 
   printf("\n\t\t....Next Multiple Tests Passed\n");
-
+  /*
   printf("\n\t=========Starting Fahrenheit to Celsius Tests===========\n");
 
   //Convert Fahrenheit value to Celsius value
