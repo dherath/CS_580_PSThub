@@ -19,6 +19,24 @@ float convertFtoC(float fahrenheit){
 //Function to calculate fibonacci series for first 20 numbers
 int fibonacci(){
   //TODO
+  /*  x0=0;
+      x1=1;
+      x2=x0+x1;
+      x3=x2+x1;
+      x4=x3+x2;
+
+      x_i = x_i_1 + x_i_2;
+  */
+  int f_i2 = 0; // fibonacci of (i-2)th location
+  int f_i1 = 1; // fibonacci of (i-1)th location
+  int f_i = f_i2 + f_i1; // fibonacci of (i)th location
+  for(int i=3;i<20;i++){
+    f_i2 = f_i1;
+    f_i1 = f_i;
+    f_i = f_i2 + f_i1; 
+  }
+  return f_i;
+  
 }
 
 //Function to cast a long to an int
@@ -111,7 +129,7 @@ int main(){
 
   printf("\n\t\t....Casting Tests Passed\n");
   //printf("\n\t=========Starting Fahrenheit to Celsius Tests===========\n");
-  /*
+  
   printf("\n\t=============================\n");
   printf("\t=           PART C          =\n");
   printf("\t=============================\n\n");
@@ -123,6 +141,6 @@ int main(){
   printf("\n\t\t....Fibonacci Tests Passed\n");
 
   printf("\n\t=========ALL TESTS PASSED===========\n");
-  */
+  
   return 0;
 }
