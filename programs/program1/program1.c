@@ -13,6 +13,7 @@ int findNextMultiple(int number1, int number2){
 //Function to convert Fahrenheit to Celsuius
 float convertFtoC(float fahrenheit){
   //TODO
+  return (fahrenheit-32)/1.8;
 }
 
 //Function to calculate fibonacci series for first 20 numbers
@@ -74,7 +75,7 @@ int main(){
   assert(1000 == findNextMultiple(number1,number2));
 
   printf("\n\t\t....Next Multiple Tests Passed\n");
-  /*
+  
   printf("\n\t=========Starting Fahrenheit to Celsius Tests===========\n");
 
   //Convert Fahrenheit value to Celsius value
@@ -90,7 +91,7 @@ int main(){
   celsius = convertFtoC(fahrenheit);
   assert(-40.0 == celsius);
   printf("\n\t\t....Fahrenheit to Celsius Tests Passed\n");
-
+  /*
   printf("\n\t=============================\n");
   printf("\t=           PART B          =\n");
   printf("\t=============================\n\n");
