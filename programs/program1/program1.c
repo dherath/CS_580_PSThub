@@ -52,15 +52,15 @@ int main(){
   float result = 3*pow(x,3.0)-5*pow(x,2.0)+6;
   
   assert(result == 21.625);
-  /*
+  
   //Write code to evaluate the following expression: (4 × 10^8 + 2 × 10^-7) / (7 × 10^-6 + 2 × 10^8)
-
-  result = 0;//TODO write your expression here
-
+//TODO write your expression here
+  result = (4*pow(10.0,8.0)+2*pow(10.0,-7.0))/(7*pow(10.0,-6.0)+2*pow(10.0,8.0));
+  
   assert(result == 2.0);
 
   printf("\n\t\t....Converting Expressions Tests Passed\n");
-
+  /*
   printf("\n\t=========Starting Next Multiple Tests===========\n");
   //For given numbers find next multiple
   int number1 = 365, number2 = 7;
