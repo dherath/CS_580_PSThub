@@ -24,16 +24,19 @@ int fibonacci(){
 //Function to cast a long to an int
 int castToInt(long num){
   //TODO
+  return (int) num;
 }
 
 //Function to cast a long to an double
 double castToDouble(long num){
   //TODO
+  return (double) num;
 }
 
 //Function to cast a long to an char
 char castToChar(long num){
   //TODO
+  return (char) num;
 }
 
 //The main driver
@@ -91,7 +94,7 @@ int main(){
   celsius = convertFtoC(fahrenheit);
   assert(-40.0 == celsius);
   printf("\n\t\t....Fahrenheit to Celsius Tests Passed\n");
-  /*
+  
   printf("\n\t=============================\n");
   printf("\t=           PART B          =\n");
   printf("\t=============================\n\n");
@@ -107,8 +110,8 @@ int main(){
   assert('A' == large_num_as_char);
 
   printf("\n\t\t....Casting Tests Passed\n");
-  printf("\n\t=========Starting Fahrenheit to Celsius Tests===========\n");
-
+  //printf("\n\t=========Starting Fahrenheit to Celsius Tests===========\n");
+  /*
   printf("\n\t=============================\n");
   printf("\t=           PART C          =\n");
   printf("\t=============================\n\n");
