@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+int foo(char p[]) {//dont need pass array size
+  printf("%d\n",sizeof(p)); //-> this mehtod wont work - have to use foo(char p[],int sizeofChar)
+  return 0;// always returns 8 -> 64 bits/8, 
+}
+
+int main(){
+  double x = 1024.0;
+  double k = 3.0;
+  int y = (int) x;
+
+  char z= (char) z;
+  int array[] = {1,2,3,4,5};
+  
+  printf("x = %.1f\n",x);
+  printf("y = %d\n",y);
+  printf("z = %c\n",z);
+  printf("k = %d\n",k);
+  printf("operator x<k = %d\n",x<k);
+
+  //---------------
+  int size = sizeof(array)/sizeof(int);//works only in same scope
+  printf("size of array = %d\n",size);
+
+  // C doesnt have string
+  char w1[] = {'a','b','c','\0'};
+  char word[] = "Hello";
+  printf("strings = %c\n",w1);// doesnt work ?
+  printf("word = %c\n",word);
+
+  foo(word);// shows 8
+  
+  return 0;
+}

@@ -9,7 +9,7 @@ int main(){
     This is amulti line comment
   */
   printf("\t numbers %d %c %f \n",5,'h',2.5); //these are format specifiers
-   double x2 = 2.0; // can force data types also-> but needs to specify what
+  double x2 = 2.0; // can force data types also-> but needs to specify what
   int X2= 3;// suggest its a constant value
   unsigned long x3 = 1000; //allows for a really long number
 
