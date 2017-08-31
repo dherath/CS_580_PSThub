@@ -13,8 +13,8 @@ int main(){
 
   //------printing------------
   printf("the size of an int: %ld\n",sizeof(int));//4
-  printf("the size of nums(in[]): %ld\n",sizeof(nums));//20
-  printf("the size of ints in num: %ld\n",sizeof(nums)/sizeof(int));//5
+  printf("the size of nums(in[]): %ld\n",sizeof(nums));//20 -> outputs the number of bytes in the array
+  printf("the size of ints in num: %ld\n",sizeof(nums)/sizeof(int));//5 -> the length of an array
   printf("the first num is %d, the 2nd %d.\n",nums[0],nums[1]);// 10, 12
   printf("the size of a  char: %ld\n",sizeof(char));//1 its in bytes
   printf("the size of name(char[]): %ld\n",sizeof(name));//11 its in bytes
