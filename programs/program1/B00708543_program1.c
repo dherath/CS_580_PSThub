@@ -2,6 +2,9 @@
 #include <math.h>
 #include <assert.h>
 
+// name - Jerome Dinal Herath Muthukumaranage
+// B number - B00708543
+
 //Function to calcualte next multiple of two given values
 int findNextMultiple(int number1, int number2){
 

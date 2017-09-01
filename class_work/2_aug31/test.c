@@ -8,6 +8,11 @@ int foo(char p[]) {//dont need pass array size
   return 0;// always returns 8 -> 64 bits/8, 
   }*/
 
+int foo(char input[],int sizeOfChar){
+  printf("%d\n",sizeof(input)/sizeOfChar);// this never works
+  return 0;
+}
+
 int main(){
   double x = 1024;
   double k = 3.0;
@@ -33,6 +38,6 @@ int main(){
   printf("word = %s\n",word);
 
   //  foo(word);// shows 8
-  
+  foo(word,sizeof(char));
   return 0;
 }
