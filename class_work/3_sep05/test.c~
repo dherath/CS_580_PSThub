@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <String.h>
+
+int main() {
+  {
+    int x = 5; // scope
+  }
+  {
+    int x = 6;
+  }
+  return 0;
+}
