@@ -1,22 +1,30 @@
 
 int myStrStr(char *haystack,char *needle,char *buffer){
-  int size = 0;
+  int size =0;
   for(char *temp=needle;*temp!='\0';temp++){
     size++;
   }
+  
+  while(*haystack != *needle){
+    haystack++;
+    if(*haystack=='\0'){
+      return 0;
+    }
+  }
 
   for(char *i=haystack;*i!='\0';i++){
-    for(char *j=needle;*j!='\0';j++){
-      int count = 0;
-      if(*j==*(i+count)){
-	*(buffer+1)=*i;
-	count++;
-      }
-      if(size==count){
-	return 1;
-      }
+    char *j = needle;
+    char *k = i;
+    int count = 0;
+    while (*j==*k && count<size){
+      j++;
+      *(buffer+count)=*k;
+      k++;
+      count++;
+    }
+    if(count==size-1){
+      return 1;
     }
   }
   return 0;
-  
 }
