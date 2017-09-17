@@ -60,7 +60,7 @@ int main(){
     result = myStrStr(haystack[5],needle[5],buffer);
     assert(result == 0);
     printf("\n\t\t....Test Passed\n");
-
+    /*
 //////////////////////////////////////////////////////////////////////////////
     printf("\t-----------------------------------\n");
     printf("\t-   Part2 : Working with Binary   -\n");
@@ -113,6 +113,6 @@ int main(){
     printf("\n\t\t....Converting INT_MIN Passed\n");
 
     printf("\n\t=========All Tests Passed. Don't forget to submit!===========\n\n");
-
+    */
 	return 0;
 }
