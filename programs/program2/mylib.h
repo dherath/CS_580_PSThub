@@ -1,4 +1,7 @@
-#include <stdio.h>
+
+
+
+
 
 int myStrStr(char *haystack,char *needle,char *buffer){
 
