@@ -5,14 +5,16 @@
 
 int myStrStr(char *haystack,char *needle,char *buffer){
 
-  char *bufferIndex=buffer;
+  char *bufferIndex=buffer;// to remember buffer start memory location
   
   for(char * i = haystack;*i!='\0';i++){
+    
     char * temp1 = i;
     char * temp2 = needle;
     buffer = bufferIndex;
-    int count = 0;
+    
     while(*temp2!='\0'){
+      // starts comparison operation
       if(*temp1==*temp2){
 	*buffer=*temp1;
 	temp1++;
@@ -26,6 +28,7 @@ int myStrStr(char *haystack,char *needle,char *buffer){
 	break;
       }      
     }
+    
   }
   
   return 0;
