@@ -52,18 +52,13 @@ unsigned int countOnes(int num){
 
 
 void binaryArray(int n, int array[], int size){
-  for(int i=size;i>0;i--){
+  for(int i=size-1;i>=0;i--){
     int temp = n;
     temp= temp>>1;
-    printf("intial bit shift - %d\n",temp);
     temp = temp<<1;
-    printf("next bit shift - %d\n",temp);
     array[i]=n-temp;
-    printf("value in array - %d\n",array[i]);
     n=n>>1;
-    printf("value of n - %d\n",n);
   }
-  // printf("size %d\n",size);
 }
 
 
