@@ -6,7 +6,6 @@
  * buffer if found
  */
 int myStrStr(char *haystack,char *needle,char *buffer){
-
   char *bufferIndex=buffer;// to remember buffer start memory location  
   for(char * i = haystack;*i!='\0';i++){    
     char * temp1 = i;
@@ -45,7 +44,7 @@ unsigned int countOnes(int num){
     num =num/2;
   }
   if(input<0){
-    val = 32-val;
+    val = 32-val;// condition if input is negative
   }
   return val;
 }
@@ -57,10 +56,10 @@ unsigned int countOnes(int num){
 void binaryArray(int n, int array[], int size){
   for(int i=size-1;i>=0;i--){
     int temp = n;
-    temp= temp>>1;
-    temp = temp<<1;
-    array[i]=n-temp;
-    n=n>>1;
+    temp= temp>>1;//bitwise right shift
+    temp = temp<<1;//bitwise left shift
+    array[i]=n-temp;//deduct to find remainder
+    n=n>>1;//bitwise right shift n
   }
 }
 
