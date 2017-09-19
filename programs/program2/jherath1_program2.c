@@ -73,7 +73,7 @@ int main(){
     assert(countOnes(0x10) == 1);
     assert(countOnes(-1) == sizeof(int)*8);
     printf("\n\t\t....Counting 1's passed\n");
-
+    /*
     int size = sizeof(int) * 8;
     int array[size], i;
 
@@ -113,6 +113,6 @@ int main(){
     printf("\n\t\t....Converting INT_MIN Passed\n");
 
     printf("\n\t=========All Tests Passed. Don't forget to submit!===========\n\n");
-   
+    */
 	return 0;
 }
