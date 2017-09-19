@@ -32,7 +32,7 @@ int myStrStr(char *haystack,char *needle,char *buffer){
 }
 
 /*
- * The funciton retruns the number of ones 
+ * The funciton returns the number of ones 
  * in the binary representation of int num
  */
 unsigned int countOnes(int num){
@@ -50,7 +50,10 @@ unsigned int countOnes(int num){
   return val;
 }
 
-
+/*
+ *converts a decimal integer into binary form 
+ *using bitwise operations
+ */
 void binaryArray(int n, int array[], int size){
   for(int i=size-1;i>=0;i--){
     int temp = n;
@@ -61,7 +64,9 @@ void binaryArray(int n, int array[], int size){
   }
 }
 
-
+/*
+ *Prints all elements of the array
+ */
 void binaryPrinter(int array[], int size){
   for(int i=0;i<size;i++){
     printf("%d",array[i]);
