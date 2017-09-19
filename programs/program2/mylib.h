@@ -1,8 +1,10 @@
 
 
-
-
-
+/*
+ * The function myStrStr finds a substring within a a string and 
+ * returns 1 if true and 0 if false. The substring is stored in
+ * buffer if found
+ */
 int myStrStr(char *haystack,char *needle,char *buffer){
 
   char *bufferIndex=buffer;// to remember buffer start memory location
