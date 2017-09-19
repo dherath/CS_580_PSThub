@@ -7,14 +7,11 @@
  */
 int myStrStr(char *haystack,char *needle,char *buffer){
 
-  char *bufferIndex=buffer;// to remember buffer start memory location
-  
-  for(char * i = haystack;*i!='\0';i++){
-    
+  char *bufferIndex=buffer;// to remember buffer start memory location  
+  for(char * i = haystack;*i!='\0';i++){    
     char * temp1 = i;
     char * temp2 = needle;
-    buffer = bufferIndex;
-    
+    buffer = bufferIndex;    
     while(*temp2!='\0'){
       // starts comparison operation
       if(*temp1==*temp2){
@@ -29,13 +26,15 @@ int myStrStr(char *haystack,char *needle,char *buffer){
       }else{
 	break;
       }      
-    }
-    
-  }
-  
+    }    
+  }  
   return 0;
 }
 
+/*
+ * The funciton retruns the number of ones 
+ * in the binary representation of int x
+ */
 unsigned int countOnes(int x){
   unsigned int val=0;
   int input = x;
