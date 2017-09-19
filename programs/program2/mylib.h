@@ -33,19 +33,32 @@ int myStrStr(char *haystack,char *needle,char *buffer){
 
 /*
  * The funciton retruns the number of ones 
- * in the binary representation of int x
+ * in the binary representation of int num
  */
-unsigned int countOnes(int x){
+unsigned int countOnes(int num){
   unsigned int val=0;
-  int input = x;
-  while(x!=0){
-    if(x%2==1){
+  int input = num;
+  while(num!=0){
+    if(num%2==1){
       val++;
     }
-    x = x/2;
+   num =num/2;
   }
   if(input<0){
     val = 32-val;
   }
   return val;
+}
+
+
+void binaryArray(int n, int array[], int size){
+  
+}
+
+
+void binaryPrinter(int array[], int size){
+  for(int i=0;i<size-1;i++){
+    printf("%d",array[i]);
+  }
+  printf("\n");
 }
