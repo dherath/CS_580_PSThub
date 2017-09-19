@@ -1,4 +1,4 @@
-
+#include <stdio.h>
 
 /*
  * The function myStrStr finds a substring within a a string and 
@@ -42,7 +42,7 @@ unsigned int countOnes(int num){
     if(num%2==1){
       val++;
     }
-   num =num/2;
+    num =num/2;
   }
   if(input<0){
     val = 32-val;
@@ -52,12 +52,23 @@ unsigned int countOnes(int num){
 
 
 void binaryArray(int n, int array[], int size){
-  
+  for(int i=size;i>0;i--){
+    int temp = n;
+    temp= temp>>1;
+    printf("intial bit shift - %d\n",temp);
+    temp = temp<<1;
+    printf("next bit shift - %d\n",temp);
+    array[i]=n-temp;
+    printf("value in array - %d\n",array[i]);
+    n=n>>1;
+    printf("value of n - %d\n",n);
+  }
+  // printf("size %d\n",size);
 }
 
 
 void binaryPrinter(int array[], int size){
-  for(int i=0;i<size-1;i++){
+  for(int i=0;i<size;i++){
     printf("%d",array[i]);
   }
   printf("\n");
