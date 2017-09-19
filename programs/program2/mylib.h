@@ -35,3 +35,14 @@ int myStrStr(char *haystack,char *needle,char *buffer){
   
   return 0;
 }
+
+unsigned int countOnes(int x){
+  unsigned int val=0;
+  while(x!=0){
+    if(x%2==1){
+      val++;
+    }
+    x = x/2;
+  }
+  return val;
+}
