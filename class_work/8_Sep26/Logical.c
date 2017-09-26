@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main() {
+
+  int num =1024;
+  printf("intial num ->%d\n",num);
+  while(num>0){
+    printf("division -> %d\n",num>>1);
+    num = num >>1;
+  }
+  printf("---------\n");
+  //---- my mehtod---------
+  int x = 1;
+  printf("intital num -> %d\n",x);
+  for(int i=1;i<11;i++){
+    printf("after shift -> %d\n",x<<i);
+  }
+  /*
+    int num = 1024;
+    while((num=num>>1)) printf("%d, ",num);
+    for(num=1;num<=1024;num=num<<1) printf("%d, ",num);  
+    
+  */
+  return 0;
+}
