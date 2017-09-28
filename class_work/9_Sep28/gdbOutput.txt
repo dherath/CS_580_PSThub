@@ -1,0 +1,60 @@
+(gdb) break fooA
+Breakpoint 1 at 0x555555554668: file gdbTest.c, line 5.
+(gdb) break fooB
+Breakpoint 2 at 0x555555554688: file gdbTest.c, line 10.
+(gdb) break barA
+Breakpoint 3 at 0x5555555546a8: file gdbTest.c, line 15.
+(gdb) break barB
+Breakpoint 4 at 0x5555555546c4: file gdbTest.c, line 20.
+(gdb) run
+Starting program: /import/linux/home1/jherath1/fall_2017_courses/cs580/class_work/9_Sep28/test 
+
+Breakpoint 1, fooA () at gdbTest.c:5
+5	  char str[]= "fooA";
+(gdb) print str
+$1 = "UUU\000"
+(gdb) step
+6	  fooB();
+(gdb) print str
+$2 = "fooA"
+(gdb) c
+Continuing.
+
+Breakpoint 2, fooB () at gdbTest.c:10
+10	  char str[]= "fooB";
+(gdb) print str
+$3 = "UUU\000"
+(gdb) s
+11	  barA();
+(gdb) print str
+$4 = "fooB"
+(gdb) c
+Continuing.
+
+Breakpoint 3, barA () at gdbTest.c:15
+15	  char str[]= "barA";
+(gdb) print str
+$5 = "\377\377\177\000"
+(gdb) s
+16	  barB();
+(gdb) print str
+$6 = "barA"
+(gdb) c
+Continuing.
+
+Breakpoint 4, barB () at gdbTest.c:20
+20	  char str[]= "barB";
+(gdb) print str
+$7 = "\000\000\000\000"
+(gdb) s
+21	}
+(gdb) print str
+$8 = "barB"
+(gdb) print bt
+No symbol "bt" in current context.
+(gdb) bt
+#0  barB () at gdbTest.c:21
+#1  0x00005555555546bd in barA () at gdbTest.c:16
+#2  0x000055555555469d in fooB () at gdbTest.c:11
+#3  0x000055555555467d in fooA () at gdbTest.c:6
+#4  0x00005555555546e0 in main () at gdbTest.c:24

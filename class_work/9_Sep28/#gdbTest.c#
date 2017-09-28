@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void fooA(){
+  char str[]= "fooA";
+}
+
+void fooB(){
+  char str[]= "foo";
+}
+
+void foo(){
+  char str[]= "foo";
+}
+
+void foo(){
+  char str[]= "foo";
+}
+
+int main() {
+  foo();
+  //----------
+  return 0;
+}

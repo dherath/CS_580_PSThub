@@ -1,0 +1,40 @@
+==2461== Memcheck, a memory error detector
+==2461== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2461== Using Valgrind-3.12.0.SVN and LibVEX; rerun with -h for copyright info
+==2461== Command: ./val
+==2461== 
+==2461== Conditional jump or move depends on uninitialised value(s)
+==2461==    at 0x4E7F77D: vfprintf (vfprintf.c:1636)
+==2461==    by 0x4E871F8: printf (printf.c:33)
+==2461==    by 0x1086F0: main (val.c:11)
+==2461== 
+==2461== Use of uninitialised value of size 8
+==2461==    at 0x4E7C16B: _itoa_word (_itoa.c:179)
+==2461==    by 0x4E80869: vfprintf (vfprintf.c:1636)
+==2461==    by 0x4E871F8: printf (printf.c:33)
+==2461==    by 0x1086F0: main (val.c:11)
+==2461== 
+==2461== Conditional jump or move depends on uninitialised value(s)
+==2461==    at 0x4E7C175: _itoa_word (_itoa.c:179)
+==2461==    by 0x4E80869: vfprintf (vfprintf.c:1636)
+==2461==    by 0x4E871F8: printf (printf.c:33)
+==2461==    by 0x1086F0: main (val.c:11)
+==2461== 
+==2461== Conditional jump or move depends on uninitialised value(s)
+==2461==    at 0x4E80971: vfprintf (vfprintf.c:1636)
+==2461==    by 0x4E871F8: printf (printf.c:33)
+==2461==    by 0x1086F0: main (val.c:11)
+==2461== 
+==2461== Conditional jump or move depends on uninitialised value(s)
+==2461==    at 0x4E7F831: vfprintf (vfprintf.c:1636)
+==2461==    by 0x4E871F8: printf (printf.c:33)
+==2461==    by 0x1086F0: main (val.c:11)
+==2461== 
+==2461== Conditional jump or move depends on uninitialised value(s)
+==2461==    at 0x4E7F8B2: vfprintf (vfprintf.c:1636)
+==2461==    by 0x4E871F8: printf (printf.c:33)
+==2461==    by 0x1086F0: main (val.c:11)
+==2461== 
+15
+==2461== 
+==2461== HEAP SUMMARY:
