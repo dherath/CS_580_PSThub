@@ -2,22 +2,9 @@ P= gdbTest
 Q= program3B
 CFLAGS= -g -std=gnu11
 
-all: $(P)
 
-$(P): $(P).o
-	gcc $(CFLAGS) $(P).o -o $(P)
-
-$(P).o: $(P).c
-	gcc $(CFLAGS) -c $(P).c -o $(P).o
-
-##---------------------------------------
+##-------------part 2--------------------------
 checkmem: $(Q).c
-	gcc $(CFLAGS)
+	gcc $(CFLAGS) $(Q).c -o $(Q)
+	valgrind ./$(Q)
 
-
-
-clean:
-	rm $(P).o $(P)
-
-run : $(P)
-	./$(P)
