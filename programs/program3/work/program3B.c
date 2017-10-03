@@ -5,7 +5,7 @@
 
 void f1(){
   int *a = malloc(sizeof(int) * 3);
-  for (int i = 0; i < sizeof(a); i++){
+  for (int i = 0; i < sizeof(a)/sizeof(int); i++){
     a[i] = i;
   }
 }

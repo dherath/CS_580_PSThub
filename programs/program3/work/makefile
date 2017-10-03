@@ -8,3 +8,6 @@ checkmem: $(Q).c
 	gcc $(CFLAGS) $(Q).c -o $(Q)
 	valgrind ./$(Q)
 
+clean:
+	-rm $(Q)
+
