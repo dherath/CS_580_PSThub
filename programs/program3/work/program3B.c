@@ -8,6 +8,7 @@ void f1(){
   for (int i = 0; i < sizeof(a)/sizeof(int); i++){
     a[i] = i;
   }
+  free(a);
 }
 
 int * f2(){
@@ -24,12 +25,12 @@ int * f2(){
 
 int f3(){
   char * cptr = malloc(sizeof(char)*10);
-  cptr[10] = 'a';
-  char junk;
+  cptr[0] = 'a';
+  int junk=0;
   if(junk == 0){
       printf("Junk is zero.");
   }
-  free(&junk);
+  free(cptr);
 }
 
 /** DO NOT ALTER THE MAIN FUNCTION **/
