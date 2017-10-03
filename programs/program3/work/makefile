@@ -1,7 +1,20 @@
-P= gdbTest
+P1=bomb
+P2=defuseMe
+P3=hidden
+#---------------------------------------------
+P=defuseTheBomb
 Q= program3B
 CFLAGS= -g -std=gnu11
 
+
+##-------------part 1--------------------------
+defuseTheBomb:$(P)
+
+$(P): $(P).o $(P3).o
+	gcc $(CFLAGS) $(P).o $(P3).o -o $(P)
+
+$(P).o:$(P1).c $(P2).c 
+	gcc $(CFLAGS) -c $(P1).c $(P2).c -o $(P).o
 
 ##-------------part 2--------------------------
 checkmem: $(Q).c
@@ -9,5 +22,5 @@ checkmem: $(Q).c
 	valgrind ./$(Q)
 
 clean:
-	-rm $(Q)
+	-rm $(Q) $(P) $(P1).o $(P2).o
 
