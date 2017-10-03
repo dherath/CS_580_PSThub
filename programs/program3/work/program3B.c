@@ -12,7 +12,7 @@ void f1(){
 
 int * f2(){
   int a[10];
-  for (int i = 0; i < 9; i++){
+  for (int i = 0; i < 10; i++){
     a[i] = i;
   }
   for (int i = 0; i < 10; i++){
