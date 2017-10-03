@@ -1,4 +1,5 @@
 P= gdbTest
+Q= program3B
 CFLAGS= -g -std=gnu11
 
 all: $(P)
@@ -8,6 +9,12 @@ $(P): $(P).o
 
 $(P).o: $(P).c
 	gcc $(CFLAGS) -c $(P).c -o $(P).o
+
+##---------------------------------------
+checkmem: $(Q).c
+	gcc $(CFLAGS)
+
+
 
 clean:
 	rm $(P).o $(P)
