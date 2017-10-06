@@ -24,5 +24,5 @@ checkmem: $(Q).c
 	valgrind ./$(Q)
 
 clean:
-	-rm -f  $(P) $(P1).o $(P2).o
+	-rm -f $(Q) $(P) $(P1).o $(P2).o
 
