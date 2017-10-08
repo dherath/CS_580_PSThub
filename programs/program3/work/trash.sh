@@ -22,6 +22,8 @@ if [ $# -gt 0 ];then
     for FILE in $LIST ; do
 	if [ -f $FILE ]; then
 	    mv $FILE TRASH/
+	elif [ -d $FILE ]; then
+	    echo " $FILE is a directory "
 	else
 	    echo " $FILE is not in directory "
 	fi
