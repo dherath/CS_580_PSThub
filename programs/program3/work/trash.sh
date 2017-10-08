@@ -26,7 +26,17 @@ if [ $# -gt 0 ];then
 	    echo " $FILE is not in directory "
 	fi
     done   
-    
+    #-------- removing file based on time stamp------
+    cd TRASH
+    TRASH_LIST=`ls`
+    HOUR=$((60*60))
+    for FILE in $TRASH_LIST ; do
+	TIME=$(( $(date +%s) - $(date +%s -r $FILE) ))
+	if [ $TIME -gt $HOUR ]; then
+	    rm $FILE
+	fi
+    done
+    cd ..
     #------------------------------------------------
 else
     echo "no arguments given "
