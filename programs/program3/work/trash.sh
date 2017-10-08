@@ -25,7 +25,7 @@ if [ $# -gt 0 ];then
 	elif [ -d $FILE ]; then
 	    echo " $FILE is a directory "
 	else
-	    echo " $FILE is not in directory "
+	    echo " $FILE is not a file in directory "
 	fi
     done   
     #-------- removing file based on time stamp------
