@@ -1,4 +1,4 @@
-#!/bash/bin -xv
+#!/bin/bash
 
 #name - Jerome Dinal Herath Muthukumaranage
 #B no - B00708543
