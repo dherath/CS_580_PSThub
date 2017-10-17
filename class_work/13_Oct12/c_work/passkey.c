@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(){
   fprintf(stdout,"first");
@@ -30,7 +31,7 @@ int main(){
 
   // prnt number
   printf("%d\n",number);
-  
+  printf("length fo name = %d\n",strlen(name));
   // getting segmentation fault
   /*while(*(name+1) !='\0'){
      *name = *name >> number ;
@@ -40,4 +41,5 @@ int main(){
   FILE * fptr = fopen("username.key","w");
   fprintf(fptr,name);
   */
+  
 }
