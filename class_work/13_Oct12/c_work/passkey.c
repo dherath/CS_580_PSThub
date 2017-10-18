@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(){
   fprintf(stdout,"first");
@@ -26,14 +27,19 @@ int main(){
   fprintf(stdout,"enter numbe(1-10): ");
   fflush(stdout);
   int number =0;
-  fscanf(stdin,"%d",number);
+  fscanf(stdin,"%d",&number);//needs to be the memory address
 
+  // prnt number
+  printf("%d\n",number);
+  printf("length fo name = %d\n",strlen(name));
   // getting segmentation fault
-  while(*name+1 !='\0'){
-    *name = *name >> number ;
+  /*while(*(name+1) !='\0'){
+     *name = *name >> number ;
+     name++;
   }
 
   FILE * fptr = fopen("username.key","w");
   fprintf(fptr,name);
+  */
   
 }
