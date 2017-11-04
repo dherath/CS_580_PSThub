@@ -9,6 +9,7 @@ typedef struct Player{
   int offensive;
   int defensive;
   int number;
+  int team;
   char * first;
   char * last;
 }Player;
@@ -22,10 +23,8 @@ typedef struct Team{
 }Team;
 
 Player * newPlayer();
-
+void deltePlayer(Player * p);
 Player * draftPlayers(char * filename, int team, int num_players);
     
-
-Team * newTeam();
 
 #endif
