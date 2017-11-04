@@ -1,5 +1,7 @@
-#include"tournament.h"
-#include"tournament.h"
+#include "tournament.h"
+#include "tournament.h"
+
+#include "tournament.c" // this was not present in given driver
 
 #include <stdio.h>
 #include <stdlib.h>
