@@ -21,12 +21,11 @@ typedef struct Team{
   struct Player * players; //player list
 }Team;
 
+Player * newPlayer();
 
-
-
-Player * draftPlayers(char * filename, int team, int num_players){
+Player * draftPlayers(char * filename, int team, int num_players);
     
-}
 
+Team * newTeam();
 
 #endif
