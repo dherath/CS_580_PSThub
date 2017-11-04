@@ -24,6 +24,25 @@ void deletePlayer(Player * p){
   free(p);
 }
 
+/**
+ *Constructor for a team
+ *@return pointer to  Team
+ **/
+Team * newTeam(){
+  Team new_t = malloc(sizeof(Team));
+  new_t -> name = NULL;
+  new_t -> players = NULL;
+  return new_t;
+}
+
+/**
+ *frees memory for a team
+ **/
+void deleteTeam(Team * t){
+  free(t->name);
+  free(t->players);
+  free(t);
+}
 
 //---------- main functions--------------------------------------
 
@@ -72,5 +91,12 @@ Player * draftPlayers(char * filename, int team, int num_players){
   deletePlayer(draftp);
   //----------------------------------------------------
   return playerList;
+}
+
+Team * initializeTeam(char * name , Player * players){
+  Team new_t = newTeam();
+  new_t -> name = name;
+  new_t -> players = players;
+  return new_t;
 }
 
