@@ -53,9 +53,12 @@ int main(){
    
     //create teams i.e. league of N teams.
     for(int counter = 0; counter < NUM_TEAMS; counter++){
+
+      
         Player * draft = draftPlayers("players.dat", counter, NUM_PLAYERS);
-        assert(draft[0].team == counter%NUM_TEAMS);
-        league[counter] = initializeTeam(team_names[counter], draft);
+
+	 assert(draft[0].team == counter%NUM_TEAMS);
+	 league[counter] = initializeTeam(team_names[counter], draft);
 	assert(sizeof((league[counter]->players[rand() % NUM_PLAYERS])) == sizeof(Player));
 	assert((league[counter]->players[rand() % NUM_PLAYERS]).offensive > 0);
         assert((league[counter]->players[rand() % NUM_PLAYERS]).defensive > 0);

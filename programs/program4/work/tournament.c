@@ -58,14 +58,10 @@ void deleteTeam(Team * t){
  *@return pointer to array of players
  **/
 Player * draftPlayers(char * filename, int team, int num_players){
-  printf("initiating function\n");
-  
-  struct Player playerList[num_players];
 
-  printf("initialized struct array\n");
+  struct Player * playerList = malloc(sizeof(Player)*num_players);
   
   int count = 0 ; // count of number of players
-  // Player * draftp = newPlayer(); // get new player
   //----------------------------------------------------
   FILE * file = fopen(filename,"r");
   char line[256];
@@ -79,66 +75,29 @@ Player * draftPlayers(char * filename, int team, int num_players){
       value[i] = token;
       token = strtok(NULL,",");
     }
-
-    // printf("rokenized \n");
-    
     //---------- add if team number matches -------------
     int teamNumber = atoi(value[0]);
     if(teamNumber == team){
-      /*Player * draftp = newPlayer();
-      draftp -> team = teamNumber ;
-      draftp -> first = value[1];
-      draftp -> last = value[2];
-      draftp -> number = atoi(value[3]);
-      draftp -> offensive = atoi(value[4]);
-      draftp -> defensive = atoi(value[5]);
-      printf("%d %s %s %d %d %d\n",draftp->team,draftp->first,draftp->last,draftp->number,draftp->offensive,draftp->defensive);*/
-      
-      // playerList[count] = *draftp;
-      //playerList++;
-      // playerList[count] = newPlayer();
-      printf("instance %d\n",count);
-      
       playerList[count].team = teamNumber ;
-      //strcpy(playerList[count].first, value[1]);
-      // strcpy(playerList[count].last, value[2]);
-      playerList[count].first = (char *) value[1];
-      playerList[count].last = (char *) value[2];
+      playerList[count].first = malloc(strlen(value[1])*sizeof(char));
+      for(int s1=0;s1<strlen(value[1]);s1++){
+	playerList[count].first[s1] = value[1][s1];
+      }
+      playerList[count].last = malloc(strlen(value[2])*sizeof(char));
+      for(int s2=0;s2<strlen(value[2]);s2++){
+	playerList[count].last[s2] = value[2][s2];
+      }
        playerList[count].number = atoi(value[3]);
        playerList[count].offensive = atoi(value[4]);
        playerList[count].defensive = atoi(value[5]);
-
-       int i=count;
-printf("%d %s %s %d %d %d\n",playerList[i].team,playerList[i].first,playerList[i].last,playerList[i].number,playerList[i].offensive,playerList[i].defensive);
-       
       count++;
-
-     //  printf("%d %s %s %d %d %d\n",playerList->team,playerList->first,playerList->last,playerList->number,playerList->offensive,playerList->defensive);
-
-      // printf("done adding\n");
-      // printf("\n\n");
-      // playerList++;
-      
     }
-  
   }
-  //----------------------------------------------------
-  //free(token);
-  //free(line);
-  //free(value);
-  // free(FILE);
-  // deletePlayer(draftp);
-  //----------------------------------------------------
-  /*while(playerList != NULL){
-     printf("%d %s %s %d %d %d\n",playerList->team,playerList->first,playerList->last,playerList->number,playerList->offensive,playerList->defensive);
-     playerList++;
-  }*/
-
-  /*for(int i=0;i<10;i++){
+  /*  printf("\nseperate->\n");
+  for(int i=0;i<10;i++){
     
      printf("%d %s %s %d %d %d\n",playerList[i].team,playerList[i].first,playerList[i].last,playerList[i].number,playerList[i].offensive,playerList[i].defensive);
-  }*/
-  
+     }*/  
   return playerList;
 }
 
