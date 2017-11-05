@@ -57,8 +57,8 @@ int main(){
       
         Player * draft = draftPlayers("players.dat", counter, NUM_PLAYERS);
 
-	 assert(draft[0].team == counter%NUM_TEAMS);
-	 league[counter] = initializeTeam(team_names[counter], draft);
+	assert(draft[0].team == counter%NUM_TEAMS);
+	league[counter] = initializeTeam(team_names[counter], draft);
 	assert(sizeof((league[counter]->players[rand() % NUM_PLAYERS])) == sizeof(Player));
 	assert((league[counter]->players[rand() % NUM_PLAYERS]).offensive > 0);
         assert((league[counter]->players[rand() % NUM_PLAYERS]).defensive > 0);
@@ -66,7 +66,7 @@ int main(){
     }
     printf("\n\t\t....Test Passed\n");
 
- /*   printf("\t-----------------------------------\n");
+    printf("\t-----------------------------------\n");
     printf("\t-   Part2 : Exhibition Games      -\n");
     printf("\t-----------------------------------\n");
 
@@ -75,7 +75,7 @@ int main(){
     Team * winner = game(NULL, NULL);
     assert(winner == NULL);
     printf("\n\t\t....Test Passed\n");
-
+    
     printf("\n\t=========Test #3: Playing a Game between two random teams===========\n\n");
     Team * team1 = league[rand() % NUM_TEAMS];
     Team * team2 = league[rand() % NUM_TEAMS];
@@ -92,7 +92,7 @@ int main(){
     assert(winner == league[team_num]);
     printf("The winning team is %s\n\n", winner->name);
     printf("\n\t\t....Test Passed\n");
-
+    /*
     printf("\t-----------------------------------\n");
     printf("\t-   Part3 : Running a Tournament  -\n");
     printf("\t-----------------------------------\n");

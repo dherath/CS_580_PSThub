@@ -30,4 +30,6 @@ Team * newTeam();
 void deleteTeam(Team * t);
 Team * initializeTeam(char * name, Player * players);
 
+Team * game(Team * t1, Team * t2);
+
 #endif

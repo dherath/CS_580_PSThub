@@ -101,11 +101,54 @@ Player * draftPlayers(char * filename, int team, int num_players){
   return playerList;
 }
 
+
+/**
+ *initilizes a Team
+ *@param name, the name of the team
+ *@param players, all the players fo the team
+ *@return the Team
+ **/
 Team * initializeTeam(char * name , Player * players){
   Team * new_t = newTeam();
   new_t -> name = name;
   new_t -> players = players;
-  return new_t;
-    
+  return new_t;    
 }
+
+Team * game(Team * t1, Team * t2){
+  
+  if (t1==NULL && t2==NULL) return NULL;
+  if (t1==NULL) return t2;
+  if (t2==NULL) return t1;
+
+  // the random generated value is compared
+  // with respect to the defensive teams player of the ith round
+
+  //----------total offensive power of teams--------
+  int tot_off_team1 = 0;
+  int tot_off_team2 = 0;
+  for (int i = 0 ;i < 10 ; i++){
+    tot_off_team1 += t1->players[i].offensive;
+    tot_off_team2 += t2->players[i].offensive;  
+  } 
+  //-------- the game ------------------------------
+  int score1 = 0;
+  int score2 = 0;
+  for(int i=0 ; i < 10 ; i++){
+    int randV1 = rand() % tot_off_team1 + 1 ;
+    int randV2 = rand() % tot_off_team2 + 1 ;
+    if (randV1 >= t2->players[i].defensive){
+      score1++ ;
+    }
+    if (randV2 >= t1->players[i].defensive){
+      score2++ ;
+    }
+  }
+  //----- comparison -------------------------------
+  if (score1 > score2){
+    return t1;
+  }
+  return t2;
+}
+
 
