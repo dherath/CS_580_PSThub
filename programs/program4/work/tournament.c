@@ -87,17 +87,17 @@ Player * draftPlayers(char * filename, int team, int num_players){
       for(int s2=0;s2<strlen(value[2]);s2++){
 	playerList[count].last[s2] = value[2][s2];
       }
-       playerList[count].number = atoi(value[3]);
-       playerList[count].offensive = atoi(value[4]);
-       playerList[count].defensive = atoi(value[5]);
+      playerList[count].number = atoi(value[3]);
+      playerList[count].offensive = atoi(value[4]);
+      playerList[count].defensive = atoi(value[5]);
       count++;
     }
   }
-  /*  printf("\nseperate->\n");
-  for(int i=0;i<10;i++){
+  /* printf("\nseperate->\n");
+     for(int i=0;i<10;i++){
     
      printf("%d %s %s %d %d %d\n",playerList[i].team,playerList[i].first,playerList[i].last,playerList[i].number,playerList[i].offensive,playerList[i].defensive);
-     }*/  
+     }*/
   return playerList;
 }
 
@@ -116,11 +116,12 @@ Team * initializeTeam(char * name , Player * players){
 }
 
 Team * game(Team * t1, Team * t2){
-  
+
   if (t1==NULL && t2==NULL) return NULL;
   if (t1==NULL) return t2;
   if (t2==NULL) return t1;
-
+  if(strcmp(t1->name,t2->name)==0) return t1;
+  
   // the random generated value is compared
   // with respect to the defensive teams player of the ith round
 
@@ -135,8 +136,8 @@ Team * game(Team * t1, Team * t2){
   int score1 = 0;
   int score2 = 0;
   for(int i=0 ; i < 10 ; i++){
-    int randV1 = rand() % tot_off_team1 + 1 ;
-    int randV2 = rand() % tot_off_team2 + 1 ;
+    int randV1 = rand() % tot_off_team1;
+    int randV2 = rand() % tot_off_team2;
     if (randV1 >= t2->players[i].defensive){
       score1++ ;
     }
@@ -150,5 +151,6 @@ Team * game(Team * t1, Team * t2){
   }
   return t2;
 }
+
 
 

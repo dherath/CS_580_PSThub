@@ -1,8 +1,6 @@
 #include "tournament.h"
 #include "tournament.h"
 
-//#include "tournament.c" // this was not present in given driver
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -18,6 +16,8 @@ int inLeague(Team *, Team **);
 
 int main(){
     /*****  Change the team names to names of your choosing ******/
+
+  /* the initial file onley contained 16 team names, it was increased to the requird 32 */
     char * team_names[] = {
         "team1",
         "team2",
@@ -35,6 +35,22 @@ int main(){
         "team14",
         "team15",
         "team16",
+	"team17",
+        "team18",
+        "team19",
+        "team20",
+        "team21",
+        "team22",
+        "team23",
+        "team24",
+        "team25",
+        "team26",
+        "team27",
+        "team28",
+        "team29",
+        "team30",
+        "team31",
+        "team32",
     };
 
     /********************************************************************/
@@ -53,10 +69,7 @@ int main(){
    
     //create teams i.e. league of N teams.
     for(int counter = 0; counter < NUM_TEAMS; counter++){
-
-      
         Player * draft = draftPlayers("players.dat", counter, NUM_PLAYERS);
-
 	assert(draft[0].team == counter%NUM_TEAMS);
 	league[counter] = initializeTeam(team_names[counter], draft);
 	assert(sizeof((league[counter]->players[rand() % NUM_PLAYERS])) == sizeof(Player));
@@ -77,6 +90,8 @@ int main(){
     printf("\n\t\t....Test Passed\n");
     
     printf("\n\t=========Test #3: Playing a Game between two random teams===========\n\n");
+
+
     Team * team1 = league[rand() % NUM_TEAMS];
     Team * team2 = league[rand() % NUM_TEAMS];
     printf("Up next, an exhibition game between %s and %s\n", team1->name, team2->name);
@@ -85,6 +100,8 @@ int main(){
     printf("The winning team is %s\n\n", winner->name);
     printf("\n\t\t....Test Passed\n");
 
+    
+    
     printf("\n\t=========Test #4: Playing a Game between the same team===========\n\n");
     int team_num = rand() % NUM_TEAMS;
     printf("Up next, a a scrimmage for %s\n", league[team_num]->name);
