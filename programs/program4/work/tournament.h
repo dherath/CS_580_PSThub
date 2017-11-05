@@ -2,6 +2,7 @@
 
 #define TOURNAMENT_H 
 
+#pragma pack(1)
 /**
  *struct for player
  **/

@@ -43,8 +43,13 @@ Team * newTeam(){
  **/
 void deleteTeam(Team * t){
   free(t->name);
-  //for(int i=0;i<10;i++)
-  //  deletePlayer(t.players[i]);
+  for(int i=0;i<10;i++){
+    //  deletePlayer(&(t->players[i]));
+    free((t->players[i].first));
+    free((t->players[i].last));
+    // free(&(t->players[i]));
+  }
+  free(t->players);
   free(t);
 }
 
@@ -59,16 +64,17 @@ void deleteTeam(Team * t){
  **/
 Player * draftPlayers(char * filename, int team, int num_players){
 
-  struct Player * playerList = malloc(sizeof(Player)*num_players);
-  
+  Player * playerList = malloc(sizeof(Player)*num_players);
   int count = 0 ; // count of number of players
   //----------------------------------------------------
   FILE * file = fopen(filename,"r");
   char line[256];
+      char * token;
+    char * value[6];
   //--------- read until eof----------------------------
   while(fgets(line,sizeof(line),file)){
-    char * token;
-    char * value[6];
+    // char * token;
+    //char * value[6];
     token = strtok(line,",");
     //--------tokenize and add values -------------------
     for(int i=0;i<6 && token !=NULL;i++){
@@ -98,6 +104,9 @@ Player * draftPlayers(char * filename, int team, int num_players){
     
      printf("%d %s %s %d %d %d\n",playerList[i].team,playerList[i].first,playerList[i].last,playerList[i].number,playerList[i].offensive,playerList[i].defensive);
      }*/
+  
+  //free(token);
+  //free(value);
   return playerList;
 }
 
@@ -162,14 +171,26 @@ Team * game(Team * t1, Team * t2){
 
 Team * tournament(Team ** tList, int num_teams){
   int n = 2;
+  int round = 1;
   while( num_teams > n){
     n = n*2;
+    round++;
   }
   if( n*2 != num_teams){
     printf("number of teams are invalid");
     return NULL;
   }
-
+  //------- temp teams list -------------------------
+  Team ** temp_tList = malloc(sizeof(tList));
+  for(int i=0;i<num_teams;i++){
+    temp_tList[i] = initializeTeam(tList[i]->name,tList[i]->players);
+    }
+  //-------------------------------------------------
+  
+  
+  for(int i=0;i<num_teams;i++){
+    deleteTeam(temp_tList[i]);
+    }
   
 }
 
