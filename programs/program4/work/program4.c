@@ -50,6 +50,7 @@ int main(){
 
     printf("\n\t=========Test #1: Creating your Teams and Players===========\n\n");
     Team ** league = malloc(sizeof(Team*) * NUM_TEAMS);
+   
     //create teams i.e. league of N teams.
     for(int counter = 0; counter < NUM_TEAMS; counter++){
         Player * draft = draftPlayers("players.dat", counter, NUM_PLAYERS);

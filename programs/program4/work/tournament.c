@@ -58,7 +58,12 @@ void deleteTeam(Team * t){
  *@return pointer to array of players
  **/
 Player * draftPlayers(char * filename, int team, int num_players){
-  Player * playerList = NULL;
+  printf("initiating function\n");
+  
+  struct Player playerList[num_players];
+
+  printf("initialized struct array\n");
+  
   int count = 0 ; // count of number of players
   // Player * draftp = newPlayer(); // get new player
   //----------------------------------------------------
@@ -74,42 +79,62 @@ Player * draftPlayers(char * filename, int team, int num_players){
       value[i] = token;
       token = strtok(NULL,",");
     }
+
+    printf("rokenized \n");
+    
     //---------- add if team number matches -------------
     int teamNumber = atoi(value[0]);
     if(teamNumber == team){
-      Player * draftp = newPlayer();
+      /*Player * draftp = newPlayer();
       draftp -> team = teamNumber ;
       draftp -> first = value[1];
       draftp -> last = value[2];
       draftp -> number = atoi(value[3]);
       draftp -> offensive = atoi(value[4]);
       draftp -> defensive = atoi(value[5]);
-      printf("%d %s %s %d %d %d\n",draftp->team,draftp->first,draftp->last,draftp->number,draftp->offensive,draftp->defensive);
+      printf("%d %s %s %d %d %d\n",draftp->team,draftp->first,draftp->last,draftp->number,draftp->offensive,draftp->defensive);*/
       
-      playerList = draftp;
+      // playerList[count] = *draftp;
       //playerList++;
-      //count++;
+      // playerList[count] = newPlayer();
+      printf("instance %d\n",count);
+      
+      playerList[count].team = teamNumber ;
+      strcpy(playerList[count].first, value[1]);
+       strcpy(playerList[count].last, value[2]);
+       playerList[count].number = atoi(value[3]);
+       playerList[count].offensive = atoi(value[4]);
+       playerList[count].defensive = atoi(value[5]);
 
-      printf("after adding \n");
+       int i=count;
+printf("%d %s %s %d %d %d\n",playerList[i].team,playerList[i].first,playerList[i].last,playerList[i].number,playerList[i].offensive,playerList[i].defensive);
+       
+      count++;
 
-      //  printf("%d %s %s %d %d %d\n",playerList->team,playerList->first,playerList->last,playerList->number,playerList->offensive,playerList->defensive);
+     //  printf("%d %s %s %d %d %d\n",playerList->team,playerList->first,playerList->last,playerList->number,playerList->offensive,playerList->defensive);
 
       // printf("done adding\n");
-      printf("\n\n");
-      playerList++;
+      // printf("\n\n");
+      // playerList++;
       
     }
   
   }
   //----------------------------------------------------
   //free(token);
+  //free(line);
   //free(value);
-  //free(FILE);
+  // free(FILE);
   // deletePlayer(draftp);
   //----------------------------------------------------
-  while(playerList != NULL){
+  /*while(playerList != NULL){
      printf("%d %s %s %d %d %d\n",playerList->team,playerList->first,playerList->last,playerList->number,playerList->offensive,playerList->defensive);
      playerList++;
+  }*/
+
+  for(int i=0;i<10;i++){
+    
+     printf("%d %s %s %d %d %d\n",playerList[i].team,playerList[i].first,playerList[i].last,playerList[i].number,playerList[i].offensive,playerList[i].defensive);
   }
   
   return playerList;
