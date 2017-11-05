@@ -115,6 +115,13 @@ Team * initializeTeam(char * name , Player * players){
   return new_t;    
 }
 
+
+/**
+ *plays the game between two teams
+ *@param t1, the first team 
+ *@param t2, the second team
+ *@return the winning team
+ **/
 Team * game(Team * t1, Team * t2){
 
   if (t1==NULL && t2==NULL) return NULL;
@@ -153,4 +160,16 @@ Team * game(Team * t1, Team * t2){
 }
 
 
+Team * tournament(Team ** tList, int num_teams){
+  int n = 2;
+  while( num_teams > n){
+    n = n*2;
+  }
+  if( n*2 != num_teams){
+    printf("number of teams are invalid");
+    return NULL;
+  }
+
+  
+}
 

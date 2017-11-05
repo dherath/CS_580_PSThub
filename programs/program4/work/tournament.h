@@ -31,5 +31,6 @@ void deleteTeam(Team * t);
 Team * initializeTeam(char * name, Player * players);
 
 Team * game(Team * t1, Team * t2);
+Team * tournament(Team ** tList, int num_teams);
 
 #endif

@@ -17,7 +17,7 @@ int inLeague(Team *, Team **);
 int main(){
     /*****  Change the team names to names of your choosing ******/
 
-  /* the initial file onley contained 16 team names, it was increased to the requird 32 */
+  /* the initial file only contained 16 team names, it was increased to the requird 32 */
     char * team_names[] = {
         "team1",
         "team2",
@@ -109,7 +109,7 @@ int main(){
     assert(winner == league[team_num]);
     printf("The winning team is %s\n\n", winner->name);
     printf("\n\t\t....Test Passed\n");
-    /*
+    
     printf("\t-----------------------------------\n");
     printf("\t-   Part3 : Running a Tournament  -\n");
     printf("\t-----------------------------------\n");
@@ -117,14 +117,14 @@ int main(){
     winner = tournament(league, 20);
     assert(winner == NULL);
     printf("\n\t\t....Test Passed\n");
-
+    
     printf("\n\t=========Test #6: Should result in a single winner===========\n\n");
     winner = tournament(league, NUM_TEAMS);
     assert(inLeague(winner, league));
     printf("\n************************ Result *******************************\n\n");
     printf("The winning team is %s\n\n", winner->name);
     printf("\n\t\t....Test Passed\n");
-
+    /*
     printf("\n\t=========Test #7: Should result in a random winner===========\n\n");
     const int NUM_SEASONS = 25;
     Team * winners[NUM_SEASONS];
