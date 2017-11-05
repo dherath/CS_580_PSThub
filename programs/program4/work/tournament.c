@@ -1,4 +1,7 @@
 #include "tournament.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 /**
  * Creates a new empty player struct
@@ -29,9 +32,9 @@ void deletePlayer(Player * p){
  *@return pointer to  Team
  **/
 Team * newTeam(){
-  Team new_t = malloc(sizeof(Team));
+  Team * new_t = malloc(sizeof(Team));
   new_t -> name = NULL;
-  new_t -> players = NULL;
+  new_t -> players = newPlayer();
   return new_t;
 }
 
@@ -40,7 +43,8 @@ Team * newTeam(){
  **/
 void deleteTeam(Team * t){
   free(t->name);
-  free(t->players);
+  //for(int i=0;i<10;i++)
+  //  deletePlayer(t.players[i]);
   free(t);
 }
 
@@ -54,9 +58,9 @@ void deleteTeam(Team * t){
  *@return pointer to array of players
  **/
 Player * draftPlayers(char * filename, int team, int num_players){
-  struct Player playeList[num_players];
+  Player * playerList = NULL;
   int count = 0 ; // count of number of players
-  Player * draftp = newPlayer(); // get new player
+  // Player * draftp = newPlayer(); // get new player
   //----------------------------------------------------
   FILE * file = fopen(filename,"r");
   char line[256];
@@ -71,32 +75,51 @@ Player * draftPlayers(char * filename, int team, int num_players){
       token = strtok(NULL,",");
     }
     //---------- add if team number matches -------------
-    int teamNumber = atoi(values[0]);
+    int teamNumber = atoi(value[0]);
     if(teamNumber == team){
-      draftp -> team = reamNumber ;
+      Player * draftp = newPlayer();
+      draftp -> team = teamNumber ;
       draftp -> first = value[1];
       draftp -> last = value[2];
       draftp -> number = atoi(value[3]);
       draftp -> offensive = atoi(value[4]);
       draftp -> defensive = atoi(value[5]);
+      printf("%d %s %s %d %d %d\n",draftp->team,draftp->first,draftp->last,draftp->number,draftp->offensive,draftp->defensive);
+      
+      playerList = draftp;
+      //playerList++;
+      //count++;
 
-      playerList[count] = draftp;
-      count++;
-    }    
+      printf("after adding \n");
+
+      //  printf("%d %s %s %d %d %d\n",playerList->team,playerList->first,playerList->last,playerList->number,playerList->offensive,playerList->defensive);
+
+      // printf("done adding\n");
+      printf("\n\n");
+      playerList++;
+      
+    }
+  
   }
   //----------------------------------------------------
-  free(token);
-  free(value);
-  free(FILE);
-  deletePlayer(draftp);
+  //free(token);
+  //free(value);
+  //free(FILE);
+  // deletePlayer(draftp);
   //----------------------------------------------------
+  while(playerList != NULL){
+     printf("%d %s %s %d %d %d\n",playerList->team,playerList->first,playerList->last,playerList->number,playerList->offensive,playerList->defensive);
+     playerList++;
+  }
+  
   return playerList;
 }
 
 Team * initializeTeam(char * name , Player * players){
-  Team new_t = newTeam();
+  Team * new_t = newTeam();
   new_t -> name = name;
   new_t -> players = players;
   return new_t;
+    
 }
 

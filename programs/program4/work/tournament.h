@@ -1,6 +1,6 @@
-#ifendif TOURNAMENT_H
+#ifndef TOURNAMENT_H 
 
-#define TOURNAMENT_H
+#define TOURNAMENT_H 
 
 /**
  *struct for player
