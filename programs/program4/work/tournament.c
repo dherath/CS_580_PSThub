@@ -80,7 +80,7 @@ Player * draftPlayers(char * filename, int team, int num_players){
       token = strtok(NULL,",");
     }
 
-    printf("rokenized \n");
+    // printf("rokenized \n");
     
     //---------- add if team number matches -------------
     int teamNumber = atoi(value[0]);
@@ -100,8 +100,10 @@ Player * draftPlayers(char * filename, int team, int num_players){
       printf("instance %d\n",count);
       
       playerList[count].team = teamNumber ;
-      strcpy(playerList[count].first, value[1]);
-       strcpy(playerList[count].last, value[2]);
+      //strcpy(playerList[count].first, value[1]);
+      // strcpy(playerList[count].last, value[2]);
+      playerList[count].first = (char *) value[1];
+      playerList[count].last = (char *) value[2];
        playerList[count].number = atoi(value[3]);
        playerList[count].offensive = atoi(value[4]);
        playerList[count].defensive = atoi(value[5]);
@@ -132,10 +134,10 @@ printf("%d %s %s %d %d %d\n",playerList[i].team,playerList[i].first,playerList[i
      playerList++;
   }*/
 
-  for(int i=0;i<10;i++){
+  /*for(int i=0;i<10;i++){
     
      printf("%d %s %s %d %d %d\n",playerList[i].team,playerList[i].first,playerList[i].last,playerList[i].number,playerList[i].offensive,playerList[i].defensive);
-  }
+  }*/
   
   return playerList;
 }
