@@ -149,6 +149,9 @@ int main(){
         deleteTeam(league[counter]);
     }
 
+
+    free(league);
+    
     printf("\n\t=========All Tests Passed. Don't forget to check Valgrind!===========\n\n");
     
     return 0;
