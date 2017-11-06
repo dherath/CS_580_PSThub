@@ -176,11 +176,11 @@ Team * tournament(Team ** tList, int num_teams){
     n = n*2;
     round++;
   }
-  if( n*2 != num_teams){
+  if( n != num_teams){
     printf("number of teams are invalid");
     return NULL;
   }
-  //------- temp teams list -------------------------
+  /*  //------- temp teams list -------------------------
   Team ** temp_tList = malloc(sizeof(tList));
   for(int i=0;i<num_teams;i++){
     temp_tList[i] = initializeTeam(tList[i]->name,tList[i]->players);
@@ -191,6 +191,25 @@ Team * tournament(Team ** tList, int num_teams){
   for(int i=0;i<num_teams;i++){
     deleteTeam(temp_tList[i]);
     }
+  */
+  int matchup[num_teams];
+  for(int i=0;i<num_teams;i++){
+    matchup[i] = i;
+  }
+  //---randomly swap indices for 100 times --------------
+  for(int i=0;i<100;i++){
+    int pos1 = rand() % num_teams;
+    int pos2 = rand() % num_teams;
+    int temp = matchup[pos2];
+    matchup[pos2] = matchup[pos1];
+    matchup[pos1] = temp;
+  }
   
+  //-----------------------------------------------------
+  struct Team *t = tList[matchup[0]];
+  for(int i=1; i<num_teams ; i++){
+    t = game(t,tList[matchup[i]]);
+  }
+  return t;    
 }
 

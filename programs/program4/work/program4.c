@@ -117,14 +117,14 @@ int main(){
     winner = tournament(league, 20);
     assert(winner == NULL);
     printf("\n\t\t....Test Passed\n");
-    /*
+    
     printf("\n\t=========Test #6: Should result in a single winner===========\n\n");
     winner = tournament(league, NUM_TEAMS);
-    assert(inLeague(winner, league));
+       assert(inLeague(winner, league));
     printf("\n************************ Result *******************************\n\n");
     printf("The winning team is %s\n\n", winner->name);
     printf("\n\t\t....Test Passed\n");
-    /*
+    
     printf("\n\t=========Test #7: Should result in a random winner===========\n\n");
     const int NUM_SEASONS = 25;
     Team * winners[NUM_SEASONS];
@@ -144,13 +144,13 @@ int main(){
     printf("\n\t\t....Test Passed\n");
     
     printf("\n\t=========Test #8: Delete team method should clean up memory for each team ===========\n\n");
-    */ //free team array.
+     //free team array.
     for(int counter = 0; counter < NUM_TEAMS; counter++){
         deleteTeam(league[counter]);
     }
 
     printf("\n\t=========All Tests Passed. Don't forget to check Valgrind!===========\n\n");
-
+    
     return 0;
 }
 
