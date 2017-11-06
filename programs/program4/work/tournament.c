@@ -69,8 +69,8 @@ Player * draftPlayers(char * filename, int team, int num_players){
   //----------------------------------------------------
   FILE * file = fopen(filename,"r");
   char line[256];
-      char * token;
-    char * value[6];
+  char * token;
+  char * value[6];
   //--------- read until eof----------------------------
   while(fgets(line,sizeof(line),file)){
     // char * token;
@@ -99,14 +99,10 @@ Player * draftPlayers(char * filename, int team, int num_players){
       count++;
     }
   }
-  /* printf("\nseperate->\n");
-     for(int i=0;i<10;i++){
-    
+  /* printf("\n");
+     for(int i=0;i<10;i++){    
      printf("%d %s %s %d %d %d\n",playerList[i].team,playerList[i].first,playerList[i].last,playerList[i].number,playerList[i].offensive,playerList[i].defensive);
      }*/
-  
-  //free(token);
-  //free(value);
   return playerList;
 }
 
@@ -168,7 +164,12 @@ Team * game(Team * t1, Team * t2){
   return t2;
 }
 
-
+/**
+ *simulates a tournament between teams
+ *@param tList, the list of teams
+ *@param num_teams, the tot. number of teams
+ *@return pointer to the winning team
+ **/
 Team * tournament(Team ** tList, int num_teams){
   int n = 2;
   int round = 1;
@@ -180,18 +181,6 @@ Team * tournament(Team ** tList, int num_teams){
     printf("number of teams are invalid");
     return NULL;
   }
-  /*  //------- temp teams list -------------------------
-  Team ** temp_tList = malloc(sizeof(tList));
-  for(int i=0;i<num_teams;i++){
-    temp_tList[i] = initializeTeam(tList[i]->name,tList[i]->players);
-    }
-  //-------------------------------------------------
-  
-  
-  for(int i=0;i<num_teams;i++){
-    deleteTeam(temp_tList[i]);
-    }
-  */
   int matchup[num_teams];
   for(int i=0;i<num_teams;i++){
     matchup[i] = i;
@@ -203,9 +192,8 @@ Team * tournament(Team ** tList, int num_teams){
     int temp = matchup[pos2];
     matchup[pos2] = matchup[pos1];
     matchup[pos1] = temp;
-  }
-  
-  //-----------------------------------------------------
+  }  
+  //----------making teams play--------------------------
   struct Team *t = tList[matchup[0]];
   for(int i=1; i<num_teams ; i++){
     t = game(t,tList[matchup[i]]);
