@@ -115,7 +115,7 @@ Player * draftPlayers(char * filename, int team, int num_players){
  *@return the Team
  **/
 Team * initializeTeam(char * name , Player * players){
-  Team * new_t = newTeam();
+  Team * new_t;// = newTeam();
   new_t -> name = name;
   new_t -> players = players;
   return new_t;    
