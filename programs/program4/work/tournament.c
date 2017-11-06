@@ -42,12 +42,13 @@ Team * newTeam(){
  *frees memory for a team
  **/
 void deleteTeam(Team * t){
-  free(t->name);
+  //free(t->name);
   for(int i=0;i<10;i++){
     //  deletePlayer(&(t->players[i]));
     free((t->players[i].first));
     free((t->players[i].last));
     // free(&(t->players[i]));
+    //free(t->(players+i));
   }
   free(t->players);
   free(t);
