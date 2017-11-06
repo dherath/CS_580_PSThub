@@ -6,7 +6,7 @@
 /**
  * Creates a new empty player struct
  *@return an empty Player struct
- **/
+ **//*
 Player * newPlayer(){
   Player * new_p = malloc(sizeof(Player));
   new_p -> offensive = 0;
@@ -16,7 +16,7 @@ Player * newPlayer(){
   new_p -> first = NULL;
   new_p -> last = NULL;
   return new_p;
-}
+}*/
 
 /**
  *frees memory of a player struct
@@ -34,7 +34,7 @@ void deletePlayer(Player * p){
 Team * newTeam(){
   Team * new_t = malloc(sizeof(Team));
   new_t -> name = NULL;
-  new_t -> players = newPlayer();
+  new_t -> players = NULL;
   return new_t;
 }
 
@@ -100,6 +100,7 @@ Player * draftPlayers(char * filename, int team, int num_players){
       count++;
     }
   }
+  fclose(file);
   /* printf("\n");
      for(int i=0;i<10;i++){    
      printf("%d %s %s %d %d %d\n",playerList[i].team,playerList[i].first,playerList[i].last,playerList[i].number,playerList[i].offensive,playerList[i].defensive);
@@ -115,7 +116,7 @@ Player * draftPlayers(char * filename, int team, int num_players){
  *@return the Team
  **/
 Team * initializeTeam(char * name , Player * players){
-  Team * new_t;// = newTeam();
+  Team * new_t = newTeam();
   new_t -> name = name;
   new_t -> players = players;
   return new_t;    
