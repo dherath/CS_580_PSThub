@@ -1,0 +1,11 @@
+#ifndef VECTOR_H
+
+#define VECTOR_H
+
+typedef struct Vector{
+  int current_size, max_size;
+  int * array;
+  int (*delete) (Vector *, int, int);
+}
+
+#endif
