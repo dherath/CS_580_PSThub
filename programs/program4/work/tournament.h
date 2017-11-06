@@ -3,6 +3,16 @@
 #define TOURNAMENT_H 
 
 #pragma pack(1)
+
+// Name - Jerome Dinal Herath Muthukumarnage
+// B no - B00708543
+
+
+/*
+the team names were increased from 16 to 32
+*/
+
+
 /**
  *struct for player
  **/

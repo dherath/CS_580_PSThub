@@ -6,7 +6,7 @@
 /**
  * Creates a new empty player struct
  *@return an empty Player struct
- **//*
+ **/
 Player * newPlayer(){
   Player * new_p = malloc(sizeof(Player));
   new_p -> offensive = 0;
@@ -16,7 +16,7 @@ Player * newPlayer(){
   new_p -> first = NULL;
   new_p -> last = NULL;
   return new_p;
-}*/
+}
 
 /**
  *frees memory of a player struct
@@ -42,13 +42,9 @@ Team * newTeam(){
  *frees memory for a team
  **/
 void deleteTeam(Team * t){
-  //free(t->name);
   for(int i=0;i<10;i++){
-    //  deletePlayer(&(t->players[i]));
     free((t->players[i].first));
     free((t->players[i].last));
-    // free(&(t->players[i]));
-    //free(t->(players+i));
   }
   free(t->players);
   free(t);
@@ -74,8 +70,6 @@ Player * draftPlayers(char * filename, int team, int num_players){
   char * value[6];
   //--------- read until eof----------------------------
   while(fgets(line,sizeof(line),file)){
-    // char * token;
-    //char * value[6];
     token = strtok(line,",");
     //--------tokenize and add values -------------------
     for(int i=0;i<6 && token !=NULL;i++){
@@ -121,7 +115,6 @@ Team * initializeTeam(char * name , Player * players){
   new_t -> players = players;
   return new_t;    
 }
-
 
 /**
  *plays the game between two teams

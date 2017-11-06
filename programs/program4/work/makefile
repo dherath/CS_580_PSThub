@@ -10,7 +10,7 @@ checkmem: $(P)
 	valgrind ./$(P)
 
 clean:
-	rm -f $(P).o $(P)
+	rm -f $(P).o tournament.o $(P)
 
 $(P): $(P).o tournament.o
 	gcc $(CFLAGS) $(P).o  tournament.o -o $(P)
