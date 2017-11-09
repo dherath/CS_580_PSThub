@@ -1,5 +1,5 @@
-#include "tournament.h"
-#include "tournament.h"
+#include"tournament.h"
+#include"tournament.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,8 +16,6 @@ int inLeague(Team *, Team **);
 
 int main(){
     /*****  Change the team names to names of your choosing ******/
-
-  /* the initial file only contained 16 team names, it was increased to the requird 32 */
     char * team_names[] = {
         "team1",
         "team2",
@@ -35,7 +33,7 @@ int main(){
         "team14",
         "team15",
         "team16",
-	"team17",
+    	"team17",
         "team18",
         "team19",
         "team20",
@@ -44,7 +42,7 @@ int main(){
         "team23",
         "team24",
         "team25",
-        "team26",
+        "team25",
         "team27",
         "team28",
         "team29",
@@ -66,14 +64,13 @@ int main(){
 
     printf("\n\t=========Test #1: Creating your Teams and Players===========\n\n");
     Team ** league = malloc(sizeof(Team*) * NUM_TEAMS);
-   
     //create teams i.e. league of N teams.
     for(int counter = 0; counter < NUM_TEAMS; counter++){
         Player * draft = draftPlayers("players.dat", counter, NUM_PLAYERS);
-	assert(draft[0].team == counter%NUM_TEAMS);
-	league[counter] = initializeTeam(team_names[counter], draft);
-	assert(sizeof((league[counter]->players[rand() % NUM_PLAYERS])) == sizeof(Player));
-	assert((league[counter]->players[rand() % NUM_PLAYERS]).offensive > 0);
+        assert(draft[0].team == counter%NUM_TEAMS);
+        league[counter] = initializeTeam(team_names[counter], draft);
+        assert(sizeof((league[counter]->players[rand() % NUM_PLAYERS])) == sizeof(Player));
+        assert((league[counter]->players[rand() % NUM_PLAYERS]).offensive > 0);
         assert((league[counter]->players[rand() % NUM_PLAYERS]).defensive > 0);
         assert(sizeof(*(league[counter])) == sizeof(Team));
     }
@@ -88,10 +85,8 @@ int main(){
     Team * winner = game(NULL, NULL);
     assert(winner == NULL);
     printf("\n\t\t....Test Passed\n");
-    
+
     printf("\n\t=========Test #3: Playing a Game between two random teams===========\n\n");
-
-
     Team * team1 = league[rand() % NUM_TEAMS];
     Team * team2 = league[rand() % NUM_TEAMS];
     printf("Up next, an exhibition game between %s and %s\n", team1->name, team2->name);
@@ -100,8 +95,6 @@ int main(){
     printf("The winning team is %s\n\n", winner->name);
     printf("\n\t\t....Test Passed\n");
 
-    
-    
     printf("\n\t=========Test #4: Playing a Game between the same team===========\n\n");
     int team_num = rand() % NUM_TEAMS;
     printf("Up next, a a scrimmage for %s\n", league[team_num]->name);
@@ -109,7 +102,7 @@ int main(){
     assert(winner == league[team_num]);
     printf("The winning team is %s\n\n", winner->name);
     printf("\n\t\t....Test Passed\n");
-    
+
     printf("\t-----------------------------------\n");
     printf("\t-   Part3 : Running a Tournament  -\n");
     printf("\t-----------------------------------\n");
@@ -117,14 +110,14 @@ int main(){
     winner = tournament(league, 20);
     assert(winner == NULL);
     printf("\n\t\t....Test Passed\n");
-    
+
     printf("\n\t=========Test #6: Should result in a single winner===========\n\n");
     winner = tournament(league, NUM_TEAMS);
-       assert(inLeague(winner, league));
+    assert(inLeague(winner, league));
     printf("\n************************ Result *******************************\n\n");
     printf("The winning team is %s\n\n", winner->name);
     printf("\n\t\t....Test Passed\n");
-    
+
     printf("\n\t=========Test #7: Should result in a random winner===========\n\n");
     const int NUM_SEASONS = 25;
     Team * winners[NUM_SEASONS];
@@ -142,18 +135,16 @@ int main(){
     }
     assert(is_random);
     printf("\n\t\t....Test Passed\n");
-    
+
     printf("\n\t=========Test #8: Delete team method should clean up memory for each team ===========\n\n");
-     //free team array.
+    //free team array.
     for(int counter = 0; counter < NUM_TEAMS; counter++){
         deleteTeam(league[counter]);
     }
-
-
     free(league);
-    
+
     printf("\n\t=========All Tests Passed. Don't forget to check Valgrind!===========\n\n");
-    
+
     return 0;
 }
 

@@ -33,6 +33,22 @@ int main(){
         "team14",
         "team15",
         "team16",
+    	"team17",
+        "team18",
+        "team19",
+        "team20",
+        "team21",
+        "team22",
+        "team23",
+        "team24",
+        "team25",
+        "team25",
+        "team27",
+        "team28",
+        "team29",
+        "team30",
+        "team31",
+        "team32",
     };
 
     /********************************************************************/
@@ -125,6 +141,7 @@ int main(){
     for(int counter = 0; counter < NUM_TEAMS; counter++){
         deleteTeam(league[counter]);
     }
+    free(league);
 
     printf("\n\t=========All Tests Passed. Don't forget to check Valgrind!===========\n\n");
 

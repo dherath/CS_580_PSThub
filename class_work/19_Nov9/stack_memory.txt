@@ -1,0 +1,109 @@
+
+Name - Jerome Dinal Herath Muthukumaranage
+B No - B00708543
+
+//-------- linked list------------------------------
+
+//-------linked list implementation----------------
+
+my_stack = null
+1) head=5
+2) head=5->tail=6
+3) head=5->6->tail=5
+4) head=5->tail=6 , x=5
+5) head=5->tail=6
+6) head=5->6->tail=4
+7) head=5->6->4->tail=3
+8) head=5->6->tail=4
+9) head=5->tail=6
+
+//------array implementation------------------------
+
+array size is = 4
+t = is the pointer to top
+
+1) | 5 | t |   |   |
+
+2) | 5 | 6 | t |   |
+
+3) | 5 | 6 | 5 | t |
+
+4) | 5 | 6 |5,t|   |
+
+5) | 5 | 6 | 4 | t |
+
+6) | 5 | 6 | 4 | 3 | t (array is full)
+
+7) | 5 | 6 | 4 |3,t|
+
+8) | 5 | 6 |4,t|  3|
+
+
+//--------Queue ----------------------------------
+
+//-------linked list----------------
+
+h= head, t=tail
+
+1) h=5
+2) h=5->t=6
+3) h=5->6->t=5
+4) h=6->t=5
+5) h=6->5->t=4
+6) h=6->5->t=4 (peek)
+7) h=6->5->4->t=3
+8) h=5->4->t=3
+9) h=4->t=3
+
+//--------array---------------------
+
+array size is = 4
+t = is the pointer to top/start of the que
+b = is the pointer to bottom/end of que
+
+1) |5,t| b |   |   |
+
+2) |5,t| 6 | b |   |
+
+3) |5,t| 6 | 5 | b |
+
+4) | 5 |6,t| 5 | b |
+
+5) |5,b|6,t| 5 | 4 |
+
+6) |5,b|6,t| 5 | 4 |
+
+7) | 3 |6,t,b|4| 3 |
+
+8) | 3 |6,b | 4|3,t|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
