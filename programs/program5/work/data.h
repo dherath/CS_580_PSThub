@@ -6,7 +6,7 @@
  *struct for Data
  **/
 typedef struct Data{
-  int value;
+  signed int value;
 }Data;
 
 

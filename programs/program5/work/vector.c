@@ -42,7 +42,23 @@ void insertVector(Vector * array, int index, Data value ){
   array->data[index] = value;
 }
 
-Data * readVector(Vector * array, int index){}
+Data * readVector(Vector * array, int index){
+
+  if(array->max_size < index){
+    fprintf(stderr,"inside NULL\n");
+    return NULL;
+  }
+  if(array->current_size < index){
+    Data * temp = malloc(sizeof(Data));
+    temp->value = -1;
+    //   fprintf(stderr,"index %d array->current_size %d\n",index,array->current_size);
+    return temp;
+  }
+  // print max size also
+  fprintf(stderr,"index %d array->current_size %d\n",index,array->current_size);
+  fprintf(stderr,"not inside ifs");
+  return &(array->data[index]);
+}
 
 void removeVector(Vector * array, int index){}
 
