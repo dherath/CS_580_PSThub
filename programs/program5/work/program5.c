@@ -27,7 +27,7 @@ int main(){
   assert(vect->max_size == 0);
   assert(vect->data == NULL);
   printf("\n\t=========Test #1 Passed...            ===========\n\n");
-  /*
+  
     printf("\n\t=========Test #2: Inserting 20 random values into your Vector===========\n\n");
     //Insert Vector
     Data data_array[20];
@@ -39,7 +39,7 @@ int main(){
     assert(vect->max_size == 31);
     assert(vect->current_size == 20);
     printf("\n\t=========Test #2 Passed...            ===========\n\n");
-
+    /*
     printf("\n\t=========Test #3: Inserting values into out of bounds index===========\n\n");
     vect->insert(vect, 49, (Data){49});
     assert(vect->max_size == 99);

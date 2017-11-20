@@ -1,4 +1,5 @@
 #include "vector.h"
+#include "data.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -21,8 +22,25 @@ Vector * newVector(){
   return new_v;
 }
 
-
-void insertVector(Vector * array, int index, Data value ){}
+/**
+ *insert functions
+ *@param array, the pointer to the vector
+ *@param index, the index to enter value
+ *@param value, the value to be entered
+ **/
+void insertVector(Vector * array, int index, Data value ){
+  if(index >= array->max_size){
+    array->max_size = index *2 + 1;
+    Data * new_dataArray = malloc(array->max_size*sizeof(Data));
+    memcpy(new_dataArray,array->data,array->current_size*sizeof(Data));
+    free(array->data);
+    array->data = new_dataArray;
+  }
+  if(array->current_size <= index+1){
+    array->current_size = index + 1;
+  }
+  array->data[index] = value;
+}
 
 Data * readVector(Vector * array, int index){}
 
