@@ -16,13 +16,18 @@ typedef struct Vector{
   struct Data * data;
   unsigned int current_size;
   unsigned int max_size;
-  
+  void (* insert)(struct Vector * array, int index, Data value);
+  Data * (* read)(struct Vector * array, int index);
+  void (* remove)(struct Vector * array, int index);
+  void (* delete)(struct Vector * array);
 }Vector;
 
 
 //-- functions------------
 
 Vector * newVector();
-
-
+void insertVector(Vector * array, int index, Data value );
+Data * readVector(Vector * array, int index);
+void removeVector(Vector * array, int index);
+void deleteVector(Vector * array);
 #endif
