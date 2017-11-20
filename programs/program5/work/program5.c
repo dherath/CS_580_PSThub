@@ -39,14 +39,14 @@ int main(){
     assert(vect->max_size == 31);
     assert(vect->current_size == 20);
     printf("\n\t=========Test #2 Passed...            ===========\n\n");
-    /*
+    
     printf("\n\t=========Test #3: Inserting values into out of bounds index===========\n\n");
     vect->insert(vect, 49, (Data){49});
     assert(vect->max_size == 99);
     assert(vect->current_size == 50);
 
     printf("\n\t=========Test #3 Passed...            ===========\n\n");
-
+    /*
     printf("\n\t=========Test #4: Inserting values into out of bounds index===========\n\n");
     //tests outof bounds insert with expansion
     vect->insert(vect, 40, (Data){40});
