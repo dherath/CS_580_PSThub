@@ -46,15 +46,15 @@ int main(){
     assert(vect->current_size == 50);
 
     printf("\n\t=========Test #3 Passed...            ===========\n\n");
-    /*
+    
     printf("\n\t=========Test #4: Inserting values into out of bounds index===========\n\n");
     //tests outof bounds insert with expansion
     vect->insert(vect, 40, (Data){40});
     assert(vect->max_size == 99);
     assert(vect->current_size == 50);
-
+    
     printf("\n\t=========Test #4 Passed...            ===========\n\n");
-
+    /*
     printf("\n\t=========Test #5: Reading from your vector===========\n\n");
 
     for(i = 0 ; i < 20 ; i++){
