@@ -31,7 +31,8 @@ Vector * newVector(){
 void insertVector(Vector * array, int index, Data value ){
   if(index >= array->max_size){
     array->max_size = index *2 + 1;
-    Data * new_dataArray = malloc(array->max_size*sizeof(Data));
+    //Data * new_dataArray = malloc(array->max_size*sizeof(Data));
+    Data * new_dataArray = calloc(array->max_size,array->max_size*sizeof(Data));
     memcpy(new_dataArray,array->data,array->current_size*sizeof(Data));
     free(array->data);
     array->data = new_dataArray;
@@ -44,7 +45,7 @@ void insertVector(Vector * array, int index, Data value ){
 
 Data * readVector(Vector * array, int index){
 
-  if(array->max_size < index){
+  /*if(array->max_size < index){
     fprintf(stderr,"inside NULL\n");
     return NULL;
   }
@@ -57,7 +58,23 @@ Data * readVector(Vector * array, int index){
   // print max size also
   fprintf(stderr,"index %d array->current_size %d\n",index,array->current_size);
   fprintf(stderr,"not inside ifs");
-  return &(array->data[index]);
+  return &(array->data[index]);*/
+
+  
+  if(index < array->current_size){
+    // fprintf(stderr, " in case 1 \n");
+    //fprintf(stderr," memory address: %d value: %d",&(array->data[index]),array->data[index] );
+    //Data temp = array->data[index];
+    if(array->data[index].value==0){
+      //temp.value = -1;
+      //Data * temp = malloc(sizeof(Data));
+      //temp->value = -1;
+      //return temp;
+      array->data[index].value = -1;
+    }
+    return &(array->data[index]);
+  }
+  return NULL;
 }
 
 void removeVector(Vector * array, int index){}

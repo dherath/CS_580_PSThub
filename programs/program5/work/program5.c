@@ -72,7 +72,7 @@ int main(){
     d = vect->read(vect, 45);
     fprintf(stderr, "%d\n", d->value);
     assert(d->value == -1);
-    /*
+    
     printf("\n\t=========Test #6 Passed...            ===========\n\n");
 
     printf("\n\t=========Test #7: Attempting to read from out of bounds===========\n\n");
@@ -81,7 +81,7 @@ int main(){
     assert(d == NULL);
 
     printf("\n\t=========Test #7 Passed...            ===========\n\n");
-
+    /*
     printf("\n\t=========Test #8: Remove elements from the vector ===========\n\n");
 
     //RemoveVector
