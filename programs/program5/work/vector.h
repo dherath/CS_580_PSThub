@@ -19,7 +19,7 @@ typedef struct Vector{
   void (* insert)(struct Vector * array, int index, Data value);
   Data * (* read)(struct Vector * array, int index);
   void (* remove)(struct Vector * array, int index);
-  void (* delete)(struct Vector * array);
+  struct Vector * (* delete)(struct Vector * array);
 }Vector;
 
 
@@ -29,5 +29,5 @@ Vector * newVector();
 void insertVector(Vector * array, int index, Data value );
 Data * readVector(Vector * array, int index);
 void removeVector(Vector * array, int index);
-void deleteVector(Vector * array);
+Vector * deleteVector(Vector * array);
 #endif

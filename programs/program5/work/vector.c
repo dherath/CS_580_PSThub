@@ -79,7 +79,12 @@ void removeVector(Vector * array, int index){
   //free(&temp);
 }
 
-void deleteVector(Vector * array){
+/**
+ *delete function
+ *@param the pointer to the vector
+ **/
+Vector * deleteVector(Vector * array){
   free(array->data);
   free(array);
+  return NULL;
 }
