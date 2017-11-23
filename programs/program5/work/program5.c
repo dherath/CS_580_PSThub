@@ -97,14 +97,14 @@ int main(){
     }
     vect->remove(vect, 50);
     printf("\n\t=========Test #9 Passed...            ===========\n\n");
-    /*
+
     printf("\n\t=========Test #10: Delete the vector from memory ===========\n\n");
 
     vect->delete(vect);
     vect = NULL;
 
     printf("\n\t=========Test #10 Passed...            ===========\n\n");
-    printf("\t-----------------------------------\n");
+    /*printf("\t-----------------------------------\n");
     printf("\t-          Part2 : Lists        -\n");
     printf("\t-----------------------------------\n");
 

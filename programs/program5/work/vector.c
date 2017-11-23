@@ -80,5 +80,6 @@ void removeVector(Vector * array, int index){
 }
 
 void deleteVector(Vector * array){
-  
+  free(array->data);
+  free(array);
 }
