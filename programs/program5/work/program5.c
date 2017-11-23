@@ -81,7 +81,7 @@ int main(){
     assert(d == NULL);
 
     printf("\n\t=========Test #7 Passed...            ===========\n\n");
-    /*
+    
     printf("\n\t=========Test #8: Remove elements from the vector ===========\n\n");
 
     //RemoveVector
@@ -89,7 +89,7 @@ int main(){
     vect->remove(vect, 40);
 
     printf("\n\t=========Test #8 Passed...            ===========\n\n");
-
+    
     printf("\n\t=========Test #9: Remove elements from the vector randomly ===========\n\n");
 
     while(vect->current_size){
@@ -97,7 +97,7 @@ int main(){
     }
     vect->remove(vect, 50);
     printf("\n\t=========Test #9 Passed...            ===========\n\n");
-
+    /*
     printf("\n\t=========Test #10: Delete the vector from memory ===========\n\n");
 
     vect->delete(vect);

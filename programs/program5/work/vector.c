@@ -43,33 +43,15 @@ void insertVector(Vector * array, int index, Data value ){
   array->data[index] = value;
 }
 
-Data * readVector(Vector * array, int index){
-
-  /*if(array->max_size < index){
-    fprintf(stderr,"inside NULL\n");
-    return NULL;
-  }
-  if(array->current_size < index){
-    Data * temp = malloc(sizeof(Data));
-    temp->value = -1;
-    //   fprintf(stderr,"index %d array->current_size %d\n",index,array->current_size);
-    return temp;
-  }
-  // print max size also
-  fprintf(stderr,"index %d array->current_size %d\n",index,array->current_size);
-  fprintf(stderr,"not inside ifs");
-  return &(array->data[index]);*/
-
-  
+/**
+ *read function
+ *@param array, the pointer to the vector
+ *@param index, the index to the value
+ *@return the pointer to the data
+ **/
+Data * readVector(Vector * array, int index){ 
   if(index < array->current_size){
-    // fprintf(stderr, " in case 1 \n");
-    //fprintf(stderr," memory address: %d value: %d",&(array->data[index]),array->data[index] );
-    //Data temp = array->data[index];
     if(array->data[index].value==0){
-      //temp.value = -1;
-      //Data * temp = malloc(sizeof(Data));
-      //temp->value = -1;
-      //return temp;
       array->data[index].value = -1;
     }
     return &(array->data[index]);
@@ -77,6 +59,26 @@ Data * readVector(Vector * array, int index){
   return NULL;
 }
 
-void removeVector(Vector * array, int index){}
+/**
+ *removed element from vector
+ *@param array, the pointer to the vector
+ *@param index, the index to the value
+ **/
+void removeVector(Vector * array, int index){
+  Data * temp = readVector(array,index);
+  if(temp!=NULL){
+    for(int i=index ; i< array->max_size-1;i++){
+      array->data[i] = array->data[i+1];
+    }
+    int new_max_size = array->max_size-1;
+    int new_current_size = array->current_size-1;
+    array->current_size = new_current_size;
+    array->max_size = new_current_size;
+  }
+  //free(&(array->data[array->max_size]));
+  //free(&temp);
+}
 
-void deleteVector(Vector * array){}
+void deleteVector(Vector * array){
+  
+}
