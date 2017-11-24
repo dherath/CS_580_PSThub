@@ -63,7 +63,7 @@ void insertList(List * list,int index, Data value){
  *@return the pointer to the Data
  **/
 Data * readList(List * list, int index){
-  if(index <= list->size){
+  if(index < list->size){
     int count = 0;
     Node * current = list->head;
     while(count < index){
@@ -75,7 +75,39 @@ Data * readList(List * list, int index){
   return NULL;
 }
 
-void removeList(List * list, int index){}
+void removeList(List * list, int index){
+  if(index < list->size && list->head !=NULL){
+    //---------------------
+    int count = 0;
+    Node * current = list->head;
+    //fprintf(stderr,"index : %d, size: %d\n",index,list->size);
+    while(count < index){
+      current = current->next;
+      count++;
+    }
+    //fprintf(stderr,"found node @ index: %d %d current size: %d\n",count,index,list->size);
+    //---------------------
+    if(current == NULL){
+      fprintf(stderr,"current is null\n");
+    }
+     if(current == list->head){
+      list->head = current->next;
+      current->next->prev = NULL;
+      current->next = NULL;
+    }else if(current == list->tail){
+      list->tail = current->prev;
+      current->prev->next = NULL;
+      current->prev = NULL;
+    }else{
+      current->prev->next = current->next;
+      current->next->prev = current->prev;
+      current->prev = NULL;
+      current->next = NULL;
+    }
+    list->size--;
+    freeNode(current);
+  }
+}
 
 void deleteList(List * list){}
 
@@ -91,4 +123,14 @@ Node * newNode(Data d){
   new_node -> prev = NULL;
   new_node -> data = d;
   return new_node;
+}
+
+/**
+ *frees memory for a node
+ *@param n, the pointer to a node
+ **/
+void freeNode(Node * n){
+  free(n->next);
+  free(n->prev);
+  free(n);
 }

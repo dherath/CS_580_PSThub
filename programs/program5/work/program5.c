@@ -141,13 +141,13 @@ int main(){
     d = list->read(list, 20);
     assert(d == NULL);
     printf("\n\t\tTest #3: Passed ...\n\n");
-    /*
+    
     fprintf(stderr, "\n\t=========Test #14: Linked List Remove===========\n\n");
 
     for(index = 0; list->head != NULL; index++){
     index = index % 4;
     list->remove(list , index);
-    }
+    }/*
     assert(list->head == NULL && list->tail == NULL);
     list->delete(list);
     list = NULL;

@@ -42,5 +42,6 @@ void deleteList(List * list);
 //---- helper functions--------
 
 Node * newNode();
+void freeNode(Node * n);
 
 #endif
