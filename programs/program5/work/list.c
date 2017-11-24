@@ -76,21 +76,23 @@ Data * readList(List * list, int index){
 }
 
 void removeList(List * list, int index){
-  if(index < list->size && list->head !=NULL){
+  if(index < list->size && list->head !=NULL && list->tail !=NULL){
     //---------------------
     int count = 0;
     Node * current = list->head;
-    //fprintf(stderr,"index : %d, size: %d\n",index,list->size);
+    // fprintf(stderr,"index : %d, size: %d\n",index,list->size);
     while(count < index){
       current = current->next;
       count++;
     }
     //fprintf(stderr,"found node @ index: %d %d current size: %d\n",count,index,list->size);
+    //fprintf(stderr,"count : %d, index: %d\n",count,index);
     //---------------------
-    if(current == NULL){
-      fprintf(stderr,"current is null\n");
-    }
-     if(current == list->head){
+    list->size--;
+    if(list->size == 0){
+      list->head = NULL;
+      list->tail = NULL;
+    }else if(current == list->head){
       list->head = current->next;
       current->next->prev = NULL;
       current->next = NULL;
@@ -104,7 +106,6 @@ void removeList(List * list, int index){
       current->prev = NULL;
       current->next = NULL;
     }
-    list->size--;
     freeNode(current);
   }
 }

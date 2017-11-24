@@ -147,12 +147,12 @@ int main(){
     for(index = 0; list->head != NULL; index++){
     index = index % 4;
     list->remove(list , index);
-    }/*
+    }
     assert(list->head == NULL && list->tail == NULL);
     list->delete(list);
     list = NULL;
     fprintf(stderr, "\n\t\tTest #14 Passed...\n\n");
-
+    /*
     printf("\n\t=========Test #15: Speed Tests ===========\n\n");
 
     printf("Comparing Vector and List\n");
