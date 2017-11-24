@@ -102,7 +102,7 @@ int main(){
 
     vect->delete(vect);
     vect = NULL;
-
+    
     printf("\n\t=========Test #10 Passed...            ===========\n\n");
     printf("\t-----------------------------------\n");
     printf("\t-          Part2 : Lists        -\n");
@@ -128,7 +128,7 @@ int main(){
     }
   
   //***** Test that out of bounds indexes are appended to the list ****/
-  list->insert(list , 20, (Data){11});
+    list->insert(list , 20, (Data){11});
     assert(list->tail->data.value == 11);
 
     fprintf(stderr, "\n\t\tTest #2: Passed ...\n\n");
@@ -149,9 +149,11 @@ int main(){
     list->remove(list , index);
     }
     assert(list->head == NULL && list->tail == NULL);
-    list->delete(list);
+    list->delete(list);/*
     list = NULL;
     fprintf(stderr, "\n\t\tTest #14 Passed...\n\n");
+
+    
     /*
     printf("\n\t=========Test #15: Speed Tests ===========\n\n");
 

@@ -97,25 +97,43 @@ void removeList(List * list, int index){
     if(list->size == 0 && count==index){
       list->head = NULL;
       list->tail = NULL;
+      //freeNode(list->head);
+      //freeNode(current);
     }else if(current == list->head){
       list->head = current->next;
       current->next->prev = NULL;
       current->next = NULL;
+      //freeNode(current);
     }else if(current == list->tail){
       list->tail = current->prev;
       current->prev->next = NULL;
       current->prev = NULL;
+      //freeNode(current);
     }else{
       current->prev->next = current->next;
       current->next->prev = current->prev;
       current->prev = NULL;
       current->next = NULL;
+      //freeNode(current);
     }
     freeNode(current);
   }
 }
 
-void deleteList(List * list){}
+void deleteList(List * list){
+  if(list->head != NULL){
+    Node * current = list->tail;
+    while(current != list->head){
+      current = current->prev;
+      freeNode(current->next);
+    }
+    freeNode(current);
+    //free(list);
+  }
+  free(list->head);
+  free(list->tail);
+  free(list);
+}
 
 
 //------helper functions-----------
@@ -138,5 +156,6 @@ Node * newNode(Data d){
 void freeNode(Node * n){
   free(n->next);
   free(n->prev);
-  free(n);
+  free(&(n->data));
+  //free(n);
 }
