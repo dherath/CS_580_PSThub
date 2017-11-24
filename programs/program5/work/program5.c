@@ -104,7 +104,7 @@ int main(){
     vect = NULL;
 
     printf("\n\t=========Test #10 Passed...            ===========\n\n");
-    /*printf("\t-----------------------------------\n");
+    printf("\t-----------------------------------\n");
     printf("\t-          Part2 : Lists        -\n");
     printf("\t-----------------------------------\n");
 
@@ -112,7 +112,7 @@ int main(){
     List * list = newList();
     assert(list->head == NULL && list->tail == NULL);
     printf("\n\t\tTest #11: Passed ...\n\n");
-
+    /*
     printf("\n\t=========Test #12: Linked List Insertion===========\n\n");
     int index = 0;
     //add elements to the list
