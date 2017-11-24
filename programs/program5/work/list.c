@@ -75,6 +75,11 @@ Data * readList(List * list, int index){
   return NULL;
 }
 
+/**
+ *removes item for a given index
+ *@param list, the pointer to list
+ *@param index, the ndex of the node to delete
+ **/
 void removeList(List * list, int index){
   if(index < list->size && list->head !=NULL && list->tail !=NULL){
     //---------------------
@@ -89,7 +94,7 @@ void removeList(List * list, int index){
     //fprintf(stderr,"count : %d, index: %d\n",count,index);
     //---------------------
     list->size--;
-    if(list->size == 0){
+    if(list->size == 0 && count==index){
       list->head = NULL;
       list->tail = NULL;
     }else if(current == list->head){
