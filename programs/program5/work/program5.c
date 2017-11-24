@@ -112,7 +112,7 @@ int main(){
     List * list = newList();
     assert(list->head == NULL && list->tail == NULL);
     printf("\n\t\tTest #11: Passed ...\n\n");
-    /*
+    
     printf("\n\t=========Test #12: Linked List Insertion===========\n\n");
     int index = 0;
     //add elements to the list
@@ -126,13 +126,13 @@ int main(){
     for(index = 0 ; index < 10 ; index++, test = test->next){
     assert(test->data.value == index +1);
     }
-  */
+  
   //***** Test that out of bounds indexes are appended to the list ****/
-  /*list->insert(list , 20, (Data){11});
+  list->insert(list , 20, (Data){11});
     assert(list->tail->data.value == 11);
 
     fprintf(stderr, "\n\t\tTest #2: Passed ...\n\n");
-
+    /*
     printf("\n\t=========Test #13: Linked List Read===========\n\n");
     for(index = 0 ; index < 10 ; index++){
     Data * d = list->read(list, index);
