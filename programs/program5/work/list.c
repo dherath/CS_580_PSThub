@@ -29,7 +29,7 @@ List * newList(){
  *@param value, the data value to be entered
  **/
 void insertList(List * list,int index, Data value){
-  Node * n = newNode(value); // creates an empty new node
+  Node * n = newNode(value); // creates a new node with 'value'
   if(list->head == NULL){
     list->head = list->tail = n;
   }else if(index== list->size){
@@ -56,7 +56,24 @@ void insertList(List * list,int index, Data value){
   list->size++;
 }
 
-Data * readList(List * list, int inded){}
+/**
+ *read function for linked list
+ *@param list, the pointer to the list
+ *@param index, the index to read
+ *@return the pointer to the Data
+ **/
+Data * readList(List * list, int index){
+  if(index <= list->size){
+    int count = 0;
+    Node * current = list->head;
+    while(count < index){
+      current = current->next;
+      count++;
+    }
+    return &(current->data);
+  }
+  return NULL;
+}
 
 void removeList(List * list, int index){}
 

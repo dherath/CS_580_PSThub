@@ -132,7 +132,7 @@ int main(){
     assert(list->tail->data.value == 11);
 
     fprintf(stderr, "\n\t\tTest #2: Passed ...\n\n");
-    /*
+    
     printf("\n\t=========Test #13: Linked List Read===========\n\n");
     for(index = 0 ; index < 10 ; index++){
     Data * d = list->read(list, index);
@@ -141,7 +141,7 @@ int main(){
     d = list->read(list, 20);
     assert(d == NULL);
     printf("\n\t\tTest #3: Passed ...\n\n");
-
+    /*
     fprintf(stderr, "\n\t=========Test #14: Linked List Remove===========\n\n");
 
     for(index = 0; list->head != NULL; index++){
