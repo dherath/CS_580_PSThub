@@ -207,7 +207,7 @@ void deleteList(List * list){
   }*/
   //free(list->head);
   //free(list->tail);
-  while(list->size > 2){
+  while(list->size > 0){
     //if(list->head != NULL){
       list->remove(list,0);
       //}
