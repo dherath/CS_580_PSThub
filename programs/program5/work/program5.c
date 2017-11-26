@@ -112,13 +112,6 @@ int main(){
     List * list = newList();
     assert(list->head == NULL && list->tail == NULL);
     printf("\n\t\tTest #11: Passed ...\n\n");
-
-    //list->insert(list,0,(Data){1});
-    //list->insert(list,1,(Data){2});
-   //list->insert(list,2,(Data){3});
-   //list->insert(list,3,(Data){4});
-   //list->remove(list,0);
-    //list->delete(list);
     
     printf("\n\t=========Test #12: Linked List Insertion===========\n\n");
     int index = 0;
@@ -159,7 +152,6 @@ int main(){
     list->delete(list);
     list = NULL;
     fprintf(stderr, "\n\t\tTest #14 Passed...\n\n");
-
     
     
     printf("\n\t=========Test #15: Speed Tests ===========\n\n");
