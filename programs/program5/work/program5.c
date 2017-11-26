@@ -168,11 +168,11 @@ int main(){
     vect = newVector();
     list = newList();
     profileInsert(vect, list);
-    /*profileRead(vect, list);
-      profileRemove(vect, list);*/
-    /*vect->delete(vect);
+    profileRead(vect, list);
+    profileRemove(vect, list);
+    vect->delete(vect);
     list->delete(list);
     printf("\n\t========= Don't forget to submit and check your code with Valgrind! ===========\n\n");
-    */
+    
   return 0;
 }

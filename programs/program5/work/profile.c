@@ -39,5 +39,58 @@ void profileInsert(Vector * vect, List * list){
 
 
 void profileRead(Vector * vect, List * list){
-  
+  int indices[100];
+  for(int i=0;i<100;i++){
+    indices[i] = rand()%1000; 
+  }
+  Data * d = NULL;
+  //--------- vector read -------------------
+  //struct timeval start, stop;
+  gettimeofday(&start,NULL);
+  for(int i = 0 ;i < 100 ; i++){
+    d = vect->read(vect,indices[i]);
+  }
+  gettimeofday(&stop,NULL);
+  time_t start_time_v = (start.tv_sec* 1000000) + start.tv_usec;
+  time_t stop_time_v = (stop.tv_sec* 1000000) + stop.tv_usec;
+  float profile_time_v = stop_time_v - start_time_v;
+  fprintf(stderr,"\nprofile time for vector read: %f\n",profile_time_v);
+  //---------- list read --------------------
+  gettimeofday(&start,NULL);
+  for(int i = 0; i < 100 ; i++){
+    d = list->read(list,indices[i]);
+  }
+  gettimeofday(&stop,NULL);
+  time_t start_time_l = (start.tv_sec* 1000000) + start.tv_usec;
+  time_t stop_time_l = (stop.tv_sec* 1000000) + stop.tv_usec;
+  float profile_time_l = stop_time_l - start_time_l;
+  fprintf(stderr,"profile time for list read: %f\n",profile_time_l);
+}
+
+void profileRemove(Vector * vect, List * list){
+  int indices[100];
+  for(int i=0;i<100;i++){
+    indices[i] = rand()%1000; 
+  }
+  //--------- vector read -------------------
+  //struct timeval start, stop;
+  gettimeofday(&start,NULL);
+  for(int i = 0 ;i < 100 ; i++){
+    vect->remove(vect,indices[i]);
+  }
+  gettimeofday(&stop,NULL);
+  time_t start_time_v = (start.tv_sec* 1000000) + start.tv_usec;
+  time_t stop_time_v = (stop.tv_sec* 1000000) + stop.tv_usec;
+  float profile_time_v = stop_time_v - start_time_v;
+  fprintf(stderr,"\nprofile time for vector remove: %f\n",profile_time_v);
+  //---------- list read --------------------
+  gettimeofday(&start,NULL);
+  for(int i = 0; i < 100 ; i++){
+    list->remove(list,indices[i]);
+  }
+  gettimeofday(&stop,NULL);
+  time_t start_time_l = (start.tv_sec* 1000000) + start.tv_usec;
+  time_t stop_time_l = (stop.tv_sec* 1000000) + stop.tv_usec;
+  float profile_time_l = stop_time_l - start_time_l;
+  fprintf(stderr,"profile time for list remove: %f\n",profile_time_l);  
 }
