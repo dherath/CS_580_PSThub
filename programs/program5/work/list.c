@@ -136,31 +136,51 @@ void removeList(List * list, int index){
 	current = current->next;
 	count++;
       }
-      //fprintf(stderr,"count: %d index: %d data: %d\n",count,index,current->data.value);
+      fprintf(stderr,"count: %d index: %d data: %d\n",count,index,current->data.value);
       if(current == list->head && current== list->tail){
-	//fprintf(stderr,"only one node\n");
+	fprintf(stderr,"only one node\n");
 	list->head = NULL;
 	list->tail = NULL;
       }else if(current == list->head){
-	//fprintf(stderr,"current is head\n");
-	list->head = current->next;
+	fprintf(stderr,"current is head\n");
+	/*list->head = current->next;
 	if(current->next = list->tail){
 	  list->tail->prev = NULL;
 	}else{
 	  current->next->prev = NULL;
-	}
-      }else if(current == list->tail){
-	//fprintf(stderr,"current is tail\n");
-	list->tail = current->prev;
-	if(current->prev = list->head){
-	  list->head->next = NULL;
+	}*/
+	if(current->next == list->tail){
+	  list->head = list->tail;
 	}else{
-	 current->prev->next = NULL; 
+	  
+	  list->head = current->next;
 	}
+	
+	current->next->prev = NULL;
+	current->next = NULL;
+      }else if(current == list->tail){
+	fprintf(stderr,"current is tail\n");
+	//list->tail = current->prev;
+	if(current->prev == list->head){
+	  fprintf(stderr,"has 2 nodes\n");
+	  list->tail = list->head;
+	  //list->head->next = NULL;
+	}else{
+	  list->tail = current->prev;
+	}/*else{
+	 current->prev->next = NULL; 
+	 }*/
+
+	current->prev->next = NULL;
+	current->prev = NULL;
       }else{
-	//fprintf(stderr,"current is in middle\n");
+	fprintf(stderr,"current is in middle\n");
 	current->prev->next = current->next;
 	current->next->prev = current->prev;
+
+	current->next = NULL;
+	current->prev = NULL;
+	//fprintf(stderr,"set in order\n");
       }
       //fprintf(stderr,"deleted index: %d\n",index);
       //fprintf(stderr,"size after removal: %d\n",list->size);
@@ -228,24 +248,7 @@ Node * newNode(Data d){
  *@param n, the pointer to a node
  **/
 void freeNode(Node * n){
-  //fprintf(stderr,"inside freeNode\n");
-  //n->next = NULL;
-  //n->prev = NULL;
-  if(n != NULL){
-    free(n->next);
-    free(n->prev);
-    free(n);
-  }
-  /* if(n->next != NULL){
-    free(n->next);
-  }
-  if(n->prev != NULL){
-    free(n->prev);
-  }
-  //free(n->next);
-  //free(n->prev);
-  //free(n->data);
+  free(n->next);
+  free(n->prev);
   free(n);
-    //free(&(n->data));
-    //free(n);*/
 }
