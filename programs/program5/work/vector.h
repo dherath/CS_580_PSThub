@@ -1,8 +1,7 @@
-#include "data.h"
-
 #ifndef DH_VECTOR_H
-
 #define DH_VECTOR_H 
+
+#include "data.h"
 
 #pragma pack(1)
 

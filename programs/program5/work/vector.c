@@ -1,5 +1,4 @@
 #include "vector.h"
-#include "data.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

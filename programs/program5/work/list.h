@@ -1,8 +1,7 @@
-#include "data.h"
-
 #ifndef DH_LIST_H
-
 #define DH_LIST_H 
+
+#include "data.h"
 
 #pragma pack(1)
 

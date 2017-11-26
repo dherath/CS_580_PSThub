@@ -10,10 +10,10 @@ checkmem: $(P)
 	valgrind ./$(P)
 
 clean:
-	rm -f $(P).o vector.o list.o $(P)
+	rm -f $(P).o vector.o list.o profile.o $(P)
 
-$(P): $(P).o vector.o list.o
-	gcc $(CFLAGS) $(P).o vector.o list.o -o $(P)
+$(P): $(P).o vector.o list.o profile.o
+	gcc $(CFLAGS) $(P).o vector.o list.o profile.o -o $(P)
 
 $(P).o: $(P).c
 	gcc $(CFLAGS) -c $(P).c -o $(P).o
@@ -23,3 +23,6 @@ vector.o: vector.h vector.c
 
 list.o: list.h list.c
 	gcc $(CFLAGS) -c list.c -o list.o
+
+profile.o: profile.h profile.c
+	gcc $(CFLAGS) -c profile.c -o profile.o
