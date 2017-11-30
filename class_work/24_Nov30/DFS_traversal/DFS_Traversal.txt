@@ -1,0 +1,23 @@
+
+// Name - Jerome Dinal Herath
+// B No - B00708543
+
+pre-order :
+
+5 3 2 1 4 8 6 7 9
+
+in-order :
+
+1 2 3 4 5 6 7 8 9
+
+post-order :
+
+1 2 4 3 7 6 9 8 5
+
+best method for:
+
+Deep Copy -> pre-order
+
+Delete Tree -> post-order
+
+Sorted Print -> in-order
