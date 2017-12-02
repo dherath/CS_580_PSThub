@@ -29,18 +29,18 @@ int main(){
   assert(bst->root == NULL);
 
   printf("\n\t\tTest #1: Passed ...\n\n");
-  /*
+  
   printf("\n\t=========Test #2: BST Insertion===========\n\n");
   for (i = 0; i < num_data; i++){
     bst->insert(bst, (Data){d[i]});
   }
   printf("\n\t\tTest #2: Passed ...\n\n");
-
+  
   printf("\n\t=========Test #3: Insert Duplicates===========\n\n");
   assert(bst->insert(bst, (Data){9}) == NULL);
 
   printf("\n\t\tTest #3: Passed ...\n\n");
-
+  /*
   printf("\n\t=========Test #4: Sort search===========\n\n");
 
   bst->sort(bst, test);
@@ -53,7 +53,7 @@ int main(){
   }
 
   printf("\n\t\tTest #4: Passed ...\n\n");
-
+  /*
   printf("\n\t=========Test #5: BST Search===========\n\n");
   int search_test[] = {5,3,10,4,8,2,1,7,9,6,12,11,13,14};
   for(i = 0; i < num_data; i++){

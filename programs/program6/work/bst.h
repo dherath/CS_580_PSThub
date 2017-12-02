@@ -26,15 +26,18 @@ typedef struct Node{
  **/
 typedef struct Tree{
   struct Node * root;
+  struct Data * (* insert)(struct Tree * bst, Data value);
 }Tree;
 
 //----- functions------------------
 
 //------ for Node -----------------
 Node * newNode(Data d, Node * parent);
+Data * insertNode(Node * n, Data d);
 
 //----- for Tree ------------------
 
 Tree * newTree();
+Data * insertTree(Tree * bst, Data value);
   
 #endif
