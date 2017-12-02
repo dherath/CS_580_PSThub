@@ -1,4 +1,4 @@
-P= program5
+P= program6
 CFLAGS= -g -std=gnu11
 
 all: $(P)
