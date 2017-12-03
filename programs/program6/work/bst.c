@@ -192,6 +192,7 @@ int compareTree(Tree * bst, Tree * new_bst){
     return 0;
   }
   int index = preOrderCompare(bst->root,new_bst->root,0);
+  // fprintf(stderr,"preOrdercompare : %d\n",index);
   if(index == 0){
     return 1;
   }
@@ -210,11 +211,14 @@ int preOrderCompare(Node * n1, Node * n2, int value){
     return value;
   }
   if(n1 == NULL || n2 == NULL){
+    //fprintf(stderr,"case ::\n");
     return value++;
-  }  
+    }  
   if(n1->data.value != n2->data.value){
-    value++;
+    //fprintf(stderr,"n1 v: %d n2 v: %d\n",n1->data.value,n2->data.value);
+    return value++;
   }
+  //fprintf(stderr,"n1 v: %d n2 v: %d\n",n1->data.value,n2->data.value);
   return preOrderCompare(n1->left,n2->left,value);
   return preOrderCompare(n1->right,n2->right,value);  
 }
@@ -284,6 +288,7 @@ void removeLeaf(Tree * bst, Node * n){
   if(n == bst->root){
     //bst->root = NULL;
     //freeNode(bst->root); // frees the root node
+    //bst->root = NULL;
     freeNode(bst->root);
     //bst->root = NULL;
   }else if(n==n->parent->left){
@@ -363,9 +368,24 @@ Node * searchRightMin( Node * n){
  *@param the pointer to a Node
  **/
 void freeNode(Node * n){
-  free(&(n->data));
+  //free(&(n->data));
+  //free(n->left);
+  //free(n->right);
+  //free(n->parent);
+  //&(n->data) = NULL;
+  //freeData(n->data);
   free(n->left);
   free(n->right);
   free(n->parent);
   free(n);
 }
+/*
+void inOrderTraversal(Node * n){
+  if(n==NULL){
+    return;
+  }
+  inOrderTraversal(n->left);
+  fprintf(stderr,"%d\n",n->data.value);
+  inOrderTraversal(n->right);
+}
+*/

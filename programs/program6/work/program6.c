@@ -91,10 +91,13 @@ int main(){
   assert(compare_result == 1);
   
   printf("\n\t\tTest #8: Passed ...\n\n");
-  /*
+  
   printf("\n\t=========Test #9: Remove a Leaf Node ===========\n\n");
 
   bst->removeData(bst, (Data) {1});
+
+  //inOrderTraversal(bst->root);
+  
   Tree * test9 = newTree();
   int test9_data[] = {5,3,10,4,8,2,7,9,6,12,11,13};
   for (i = 0; i < num_data-1; i++){
@@ -104,7 +107,7 @@ int main(){
   assert(compare_result == 1);
 
   printf("\n\t\tTest #9: Passed ...\n\n");
-
+  
   printf("\n\t=========Test #10: Remove Single Child Node using Short Circuit ===========\n\n");
 
   bst->removeData(bst, (Data) {7});
@@ -116,7 +119,7 @@ int main(){
   compare_result = bst->compare(bst, test10);
   assert(compare_result == 1);
   printf("\n\t\tTest #10: Passed ...\n\n");
-
+  
   printf("\n\t=========Test #11: Remove Two Child Node using Promotion with Leaf Node ===========\n\n");
 
   bst->removeData(bst, (Data) {10});
@@ -128,7 +131,7 @@ int main(){
   compare_result = bst->compare(bst, test11);
   assert(compare_result == 1);
   printf("\n\t\tTest #11: Passed ...\n\n");
-
+  
   printf("\n\t=========Test #12: Remove Two Child Node using promotion with Short Circuit ===========\n\n");
 
   bst->removeData(bst, (Data) {11});
@@ -140,7 +143,7 @@ int main(){
   compare_result = bst->compare(bst, test12);
   assert(compare_result == 1);
   printf("\n\t\tTest #12: Passed ...\n\n");
-
+  
   printf("\n\t=========Test #13: Remove Root with 2 Branches===========\n\n");
 
   bst->removeData(bst, (Data) {5});
@@ -154,7 +157,7 @@ int main(){
   printf("\n\t\tTest #13: Passed ...\n\n");
 
   printf("\n\t=========Test #14: Remove Root with 1 Branch ===========\n\n");
-
+  
   bst->removeData(bst, (Data) {3});
   bst->removeData(bst, (Data) {4});
   bst->removeData(bst, (Data) {2});
@@ -167,7 +170,7 @@ int main(){
   compare_result = bst->compare(bst, test14);
   assert(compare_result == 1);
   printf("\n\t\tTest #14: Passed ...\n\n");
-
+  /*
   printf("\n\t=========Test #15: Remove Root as Leaf ===========\n\n");
 
   bst->removeData(bst, (Data) {9});
@@ -177,7 +180,7 @@ int main(){
   assert(bst->root == NULL);
 
   printf("\n\t\tTest #15: Passed ...\n\n");
-
+  /*
   printf("\n\t=========Test #16: Delete Tree===========\n\n");
 
   bst->delete(bst);

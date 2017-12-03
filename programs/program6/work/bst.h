@@ -66,5 +66,8 @@ void removeLeaf(Tree * bst, Node * n);
 void shortCircuit(Tree * bst, Node * n);
 void promotion(Tree * bst, Node * n);
 Node * searchRightMin(Node * n);
+void freeData(Data d);
+
+//void inOrderTraversal(Node * n);
 
 #endif
