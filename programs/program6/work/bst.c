@@ -27,6 +27,7 @@ Tree * newTree(){
 
   t->insert = insertTree;
   t->sort = sortTree;
+  t->search = searchTree;
   
   return t;
 }
@@ -105,4 +106,41 @@ int inOrder(Node * n, Data * array,int index){
   //fprintf(stderr,"index: %d data value : %d\n",index,array[index].value);
   index++;
   index = inOrder(n->right,array,index);
+}
+
+/**
+ *searches for a data value in tree
+ *@param bst, the pointer to a tree
+ *@param value, the Data value
+ *@return pointer to found data object
+ **/
+Data * searchTree(Tree * bst, Data value){
+  if(bst->root == NULL){
+    return NULL;
+  }
+  return readNode(bst->root,value);
+}
+
+/**
+ *searches for data value recursively
+ *@param n, the node
+ *@param d, the data
+ *@return the pointer to found data
+ **/
+Data * readNode(Node * n, Data d){
+  if(n->data.value == d.value){
+    return &(n->data);
+  }else if(n->data.value < d.value){
+    if(n->right == NULL){
+      return NULL;
+    }else{
+      return readNode(n->right,d);
+    }
+  }else if(n->data.value > d.value){
+    if(n->left == NULL){
+      return NULL;
+    }else{
+      return readNode(n->left,d);
+    }
+  }  
 }

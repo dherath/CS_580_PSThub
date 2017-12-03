@@ -58,7 +58,7 @@ int main(){
   }
 
   printf("\n\t\tTest #4: Passed ...\n\n");
-  /*
+  
   printf("\n\t=========Test #5: BST Search===========\n\n");
   int search_test[] = {5,3,10,4,8,2,1,7,9,6,12,11,13,14};
   for(i = 0; i < num_data; i++){
@@ -66,7 +66,7 @@ int main(){
     assert(result->value == search_test[i]);
   }
   printf("\n\t\tTest #5: Passed ...\n\n");
-
+  /*
   printf("\n\t=========Test #6: BST Search for Missing Value===========\n\n");
 
   Data * result = bst->search(bst, (Data) {search_test[i]});
