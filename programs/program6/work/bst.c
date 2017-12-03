@@ -26,6 +26,7 @@ Tree * newTree(){
   t->root = NULL;
 
   t->insert = insertTree;
+  t->sort = sortTree;
   
   return t;
 }
@@ -52,14 +53,14 @@ Data * insertTree(Tree * bst, Data value){
  *@return the pointer to the data entered
  **/
 Data * insertNode(Node * n, Data d){
-  if(n->data.value > d.value){
+  if(n->data.value < d.value){
     if(n->right == NULL){
       n->right = newNode(d,n);
       return &(n->right->data);
     }else{
       return insertNode(n->right,d);
     }
-  }else if(n->data.value < d.value){
+  }else if(n->data.value > d.value){
     if(n->left == NULL){
       n->left = newNode(d,n);
       return &(n->left->data);
@@ -71,3 +72,37 @@ Data * insertNode(Node * n, Data d){
   }
 }
 
+
+/**
+ *sorts data in a tree
+ *@param bst, the pointer to the tree
+ *@param array, a pointer to a data array
+ **/
+void sortTree(Tree * bst, Data * array){
+  //fprintf(stderr,"started function\n");
+  Node * n = bst->root;
+  int index = 0;
+  Data * startptr = array;
+  //fprintf(stderr,"in sortTree\n");
+  if(n != NULL){
+    index = inOrder(n,array,index);
+  }
+  //array = startptr;
+}
+
+/**
+ *inorder traversal of tree
+ *@param n, the node to traerse
+ *@param array, the Data array
+ **/
+int inOrder(Node * n, Data * array,int index){
+  if(n == NULL){
+    //index--;
+    return index--;
+  }
+  index = inOrder(n->left,array,index);
+  array[index] = n->data;
+  //fprintf(stderr,"index: %d data value : %d\n",index,array[index].value);
+  index++;
+  index = inOrder(n->right,array,index);
+}

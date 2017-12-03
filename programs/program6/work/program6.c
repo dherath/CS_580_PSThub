@@ -40,10 +40,15 @@ int main(){
   assert(bst->insert(bst, (Data){9}) == NULL);
 
   printf("\n\t\tTest #3: Passed ...\n\n");
-  /*
+  
   printf("\n\t=========Test #4: Sort search===========\n\n");
 
   bst->sort(bst, test);
+
+  /*for(int i= 0; i< num_data;i++){
+    fprintf(stderr,"%d\n",test[i].value);
+    }*/
+  
   Data prev = test[0];
   for (i = 1; i < num_data; i++){
     Data next = test[i];

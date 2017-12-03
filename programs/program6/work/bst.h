@@ -27,6 +27,7 @@ typedef struct Node{
 typedef struct Tree{
   struct Node * root;
   struct Data * (* insert)(struct Tree * bst, Data value);
+  void (* sort)(struct Tree * bst, Data * array);
 }Tree;
 
 //----- functions------------------
@@ -39,5 +40,10 @@ Data * insertNode(Node * n, Data d);
 
 Tree * newTree();
 Data * insertTree(Tree * bst, Data value);
+void  sortTree(Tree * bst, Data * array);
+
+//----- helper functions-----------
+
+int inOrder(Node * n, Data * array, int index);
   
 #endif
