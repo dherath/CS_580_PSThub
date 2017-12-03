@@ -32,6 +32,7 @@ typedef struct Tree{
   struct Data * (* search)(struct Tree * bst, Data value);
   struct Tree * (* clone)(struct Tree * bst);
   int (* compare)(struct Tree * bst, struct Tree * new_bst);
+  void (*removeData)(struct Tree * bst, Data value);
   
 }Tree;
 
@@ -42,6 +43,8 @@ typedef struct Tree{
 Node * newNode(Data d, Node * parent);
 Data * insertNode(Node * n, Data d);
 Data * readNode(Node * n, Data d);
+Node * searchNodeHelper(Node * n, Data d);
+void freeNode(Node * n);
 
 //----- for Tree ------------------
 
@@ -51,11 +54,17 @@ void sortTree(Tree * bst, Data * array);
 Data * searchTree(Tree * bst, Data value);
 Tree * cloneTree(Tree * bst);
 int compareTree(Tree * bst, Tree * new_bst);
+void removeTree(Tree * bst, Data value);
 
 //----- helper functions-----------
 
 int inOrder(Node * n, Data * array, int index);
 void preOrderClone(Node * n, Tree * new_bst);
 int preOrderCompare(Node * bst_n,Node * new_bst_n,int value);
+Node * searchNode(Tree * bst, Data value);
+void removeLeaf(Tree * bst, Node * n);
+void shortCircuit(Tree * bst, Node * n);
+void promotion(Tree * bst, Node * n);
+Node * searchRightMin(Node * n);
 
 #endif

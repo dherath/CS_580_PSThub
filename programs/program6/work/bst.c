@@ -30,9 +30,12 @@ Tree * newTree(){
   t->search = searchTree;
   t->clone = cloneTree;
   t->compare = compareTree;
+  t->removeData = removeTree;
   
   return t;
 }
+
+//----------------------------------------------
 
 /**
  *inserts a node into a BST
@@ -195,17 +198,174 @@ int compareTree(Tree * bst, Tree * new_bst){
   return 0;
 }
 
+/**
+ *preOrder helper function : compare
+ *@param n1, node 1
+ *@param n2, node 2
+ *@param value, int flag value
+ *@return int flag value
+ **/
 int preOrderCompare(Node * n1, Node * n2, int value){
   if( n1 == NULL && n2 == NULL){
     return value;
   }
   if(n1 == NULL || n2 == NULL){
     return value++;
-  }
-  
+  }  
   if(n1->data.value != n2->data.value){
     value++;
   }
   return preOrderCompare(n1->left,n2->left,value);
   return preOrderCompare(n1->right,n2->right,value);  
+}
+
+/**
+ *removes a da from a tree
+ *@param bst, the pointer to the tree
+ *@param value, the data value
+ **/
+void removeTree(Tree * bst, Data value){
+  Node * toDelete = searchNode(bst,value);
+  if(toDelete != NULL){
+    if(toDelete->left==NULL && toDelete->right==NULL){
+      removeLeaf(bst,toDelete); // leaf node
+    }else if(toDelete->left==NULL || toDelete->right==NULL){
+      shortCircuit(bst,toDelete);// has one child
+    }else{
+      promotion(bst,toDelete);// has two children
+    }    
+  }
+}
+
+
+/**
+ *searches for a Node in tree
+ *@param bst, the pointer to a tree
+ *@param value, the Data value
+ *@return pointer to found ode
+ **/
+Node * searchNode(Tree * bst, Data value){
+  if(bst->root == NULL){
+    return NULL;
+  }
+  return searchNodeHelper(bst->root,value);
+}
+
+/**
+ *searches for Node recursively
+ *@param n, the node
+ *@param d, the data
+ *@return the pointer to Node 
+ **/
+Node * searchNodeHelper(Node * n, Data d){
+  if(n->data.value == d.value){
+    return n;
+  }else if(n->data.value < d.value){
+    if(n->right == NULL){
+      return NULL;
+    }else{
+      return searchNodeHelper(n->right,d);
+    }
+  }else if(n->data.value > d.value){
+    if(n->left == NULL){
+      return NULL;
+    }else{
+      return searchNodeHelper(n->left,d);
+    }
+  }  
+}
+
+/**
+ *delete case 1: leaf node
+ *@param bst, the tree
+ *@param n,the leaf node
+ **/
+void removeLeaf(Tree * bst, Node * n){
+  if(n == bst->root){
+    //bst->root = NULL;
+    //freeNode(bst->root); // frees the root node
+    freeNode(bst->root);
+    //bst->root = NULL;
+  }else if(n==n->parent->left){
+    n->parent->left=NULL;
+  }else{
+    n->parent->right=NULL;
+  }
+  freeNode(n);
+}
+
+/**
+ *delete case 2: has one child
+ *@param bst, the tree
+ *@param n, the node 
+ **/
+void shortCircuit(Tree * bst,Node * n){
+  if(n==bst->root){
+    if(n->left !=NULL){
+      bst->root = n->left;
+      freeNode(n);
+    }else{
+      bst->root = n->right;
+      freeNode(n);
+    }
+  }else if(n==n->parent->left){
+    if(n->left != NULL){
+      n->parent->left = n->left;
+      n->left->parent = n->parent;
+    }else{
+      n->parent->left = n->right;
+      n->right->parent = n->parent;
+    }
+    freeNode(n);
+  }else{
+    if(n->left !=NULL){
+      n->parent->right = n->left;
+      n->left->parent = n->parent;
+    }else{
+      n->parent->right = n->right;
+      n->right->parent = n->parent;
+    }
+    freeNode(n);
+  }
+}
+
+/**
+ *delete case 3: has two children
+ *@param bst, the tree
+ *@param n the node
+ **/
+void promotion(Tree * bst, Node * n){
+  Node * rightMin = searchRightMin(n);
+  n->data = rightMin->data;
+  if(rightMin->left == NULL && rightMin->right == NULL){
+    removeLeaf(bst,rightMin);
+  }else{
+    shortCircuit(bst,rightMin);
+  }
+}
+
+/**
+ *helper function: to search right min node
+ *@param n the pointer to node
+ *@return the pointer to Node found
+ **/
+Node * searchRightMin( Node * n){
+  n = n->right ;
+  while(n->left !=NULL){
+    n = n->left;
+  }
+  return n;
+}
+
+
+/**
+ *frees the memory of a Node
+ *@param the pointer to a Node
+ **/
+void freeNode(Node * n){
+  free(&(n->data));
+  free(n->left);
+  free(n->right);
+  free(n->parent);
+  free(n);
 }

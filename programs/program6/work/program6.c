@@ -83,15 +83,15 @@ int main(){
   assert(compare_result == 1);
 
   printf("\n\t\tTest #7: Passed ...\n\n");
-  /*
+  
   printf("\n\t=========Test #8: Remove Value not in Tree===========\n\n");
 
   bst->removeData(bst, (Data) {14});
   compare_result = bst->compare(bst, copy_bst);
   assert(compare_result == 1);
-
+  
   printf("\n\t\tTest #8: Passed ...\n\n");
-
+  /*
   printf("\n\t=========Test #9: Remove a Leaf Node ===========\n\n");
 
   bst->removeData(bst, (Data) {1});
