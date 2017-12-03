@@ -28,6 +28,8 @@ Tree * newTree(){
   t->insert = insertTree;
   t->sort = sortTree;
   t->search = searchTree;
+  t->clone = cloneTree;
+  t->compare = compareTree;
   
   return t;
 }
@@ -143,4 +145,67 @@ Data * readNode(Node * n, Data d){
       return readNode(n->left,d);
     }
   }  
+}
+
+/**
+ *clones a tree
+ *@param bst, the pointer to existing tree
+ *@return pointer to cloned tree
+ **/
+Tree * cloneTree(Tree * bst){
+  if(bst->root == NULL){
+    return NULL;
+  }
+  Node * n = bst->root;
+  Tree * new_tree = newTree();
+  preOrderClone(n,new_tree);
+  return new_tree;
+}
+
+/**
+ *helper function: preorder traversal for clone
+ *@param n, the pointer to node(original tree)
+ *@param new_bst, pointer to new Tree
+ **/
+void preOrderClone(Node * n, Tree * new_bst){
+  if(n== NULL){
+    return;
+  }
+  new_bst->insert(new_bst,n->data);
+  preOrderClone(n->left,new_bst);
+  preOrderClone(n->right,new_bst);
+}
+
+/**
+ *compares two trees
+ *@param bst, tree1
+ *@param new_bst, tree2
+ *@return 1 if equal, 0 else
+ **/
+int compareTree(Tree * bst, Tree * new_bst){
+  if(bst == NULL && new_bst == NULL){
+    return 1;
+  }else if(bst == NULL || new_bst == NULL){
+    return 0;
+  }
+  int index = preOrderCompare(bst->root,new_bst->root,0);
+  if(index == 0){
+    return 1;
+  }
+  return 0;
+}
+
+int preOrderCompare(Node * n1, Node * n2, int value){
+  if( n1 == NULL && n2 == NULL){
+    return value;
+  }
+  if(n1 == NULL || n2 == NULL){
+    return value++;
+  }
+  
+  if(n1->data.value != n2->data.value){
+    value++;
+  }
+  return preOrderCompare(n1->left,n2->left,value);
+  return preOrderCompare(n1->right,n2->right,value);  
 }

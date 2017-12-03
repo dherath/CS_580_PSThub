@@ -73,7 +73,7 @@ int main(){
   assert(result == NULL);
 
   printf("\n\t\tTest #6: Passed ...\n\n");
-  /*
+  
   printf("\n\t=========Test #7: Clone and Compare Tree===========\n\n");
 
   Tree * copy_bst = bst->clone(bst);
@@ -83,7 +83,7 @@ int main(){
   assert(compare_result == 1);
 
   printf("\n\t\tTest #7: Passed ...\n\n");
-
+  /*
   printf("\n\t=========Test #8: Remove Value not in Tree===========\n\n");
 
   bst->removeData(bst, (Data) {14});

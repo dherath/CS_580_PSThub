@@ -26,9 +26,13 @@ typedef struct Node{
  **/
 typedef struct Tree{
   struct Node * root;
+  
   struct Data * (* insert)(struct Tree * bst, Data value);
   void (* sort)(struct Tree * bst, Data * array);
   struct Data * (* search)(struct Tree * bst, Data value);
+  struct Tree * (* clone)(struct Tree * bst);
+  int (* compare)(struct Tree * bst, struct Tree * new_bst);
+  
 }Tree;
 
 //----- functions------------------
@@ -44,10 +48,14 @@ Data * readNode(Node * n, Data d);
 Tree * newTree();
 Data * insertTree(Tree * bst, Data value);
 void sortTree(Tree * bst, Data * array);
-Data * searchTree(Tree * bst, Data value); 
+Data * searchTree(Tree * bst, Data value);
+Tree * cloneTree(Tree * bst);
+int compareTree(Tree * bst, Tree * new_bst);
 
 //----- helper functions-----------
 
 int inOrder(Node * n, Data * array, int index);
-  
+void preOrderClone(Node * n, Tree * new_bst);
+int preOrderCompare(Node * bst_n,Node * new_bst_n,int value);
+
 #endif
