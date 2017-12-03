@@ -66,14 +66,14 @@ int main(){
     assert(result->value == search_test[i]);
   }
   printf("\n\t\tTest #5: Passed ...\n\n");
-  /*
+  
   printf("\n\t=========Test #6: BST Search for Missing Value===========\n\n");
 
   Data * result = bst->search(bst, (Data) {search_test[i]});
   assert(result == NULL);
 
   printf("\n\t\tTest #6: Passed ...\n\n");
-
+  /*
   printf("\n\t=========Test #7: Clone and Compare Tree===========\n\n");
 
   Tree * copy_bst = bst->clone(bst);
