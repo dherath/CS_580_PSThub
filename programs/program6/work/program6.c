@@ -124,7 +124,7 @@ int main(){
   compare_result = bst->compare(bst, test10);
   assert(compare_result == 1);
   printf("\n\t\tTest #10: Passed ...\n\n");
-  /*
+  
   printf("\n\t=========Test #11: Remove Two Child Node using Promotion with Leaf Node ===========\n\n");
   //bst= test10;
   bst->removeData(bst, (Data) {10});
@@ -136,7 +136,7 @@ int main(){
   compare_result = bst->compare(bst, test11);
   assert(compare_result == 1);
   printf("\n\t\tTest #11: Passed ...\n\n");
-
+  
   printf("\n\t=========Test #12: Remove Two Child Node using promotion with Short Circuit ===========\n\n");
   //bst=test11;
   bst->removeData(bst, (Data) {11});
@@ -148,7 +148,7 @@ int main(){
   compare_result = bst->compare(bst, test12);
   assert(compare_result == 1);
   printf("\n\t\tTest #12: Passed ...\n\n");
-
+  
   printf("\n\t=========Test #13: Remove Root with 2 Branches===========\n\n");
   //bst=test12;
   bst->removeData(bst, (Data) {5});
@@ -160,7 +160,7 @@ int main(){
   compare_result = bst->compare(bst, test13);
   assert(compare_result == 1);
   printf("\n\t\tTest #13: Passed ...\n\n");
-
+  
   printf("\n\t=========Test #14: Remove Root with 1 Branch ===========\n\n");
   //bst=test13;
   bst->removeData(bst, (Data) {3});
@@ -175,7 +175,7 @@ int main(){
   compare_result = bst->compare(bst, test14);
   assert(compare_result == 1);
   printf("\n\t\tTest #14: Passed ...\n\n");
-
+  
   printf("\n\t=========Test #15: Remove Root as Leaf ===========\n\n");
 
   bst->removeData(bst, (Data) {9});
@@ -183,7 +183,7 @@ int main(){
   bst->removeData(bst, (Data) {13});
   bst->removeData(bst, (Data) {12});
   assert(bst->root == NULL);
-
+  
   printf("\n\t\tTest #15: Passed ...\n\n");
   /*
   printf("\n\t=========Test #16: Delete Tree===========\n\n");
