@@ -4,7 +4,7 @@
 #include <assert.h>
 
 /**
- * COnstructor for Node
+ * Constructor for Node
  **/
 Node * newNode(Data d, Node * parent){
   Node * n = malloc(sizeof(Node));
@@ -194,17 +194,11 @@ int compareTree(Tree * bst, Tree * new_bst){
   }else if(bst == NULL || new_bst == NULL){
     return 0;
   }
-  /*int index = preOrderCompare(bst->root,new_bst->root,0);
-   fprintf(stderr,"preOrdercompare : %d\n",index);
-  if(index == 0){
-    return 1;
-  }
-  return 0;*/
   Node * n1 = bst->root;
   Node * n2 = new_bst->root;
   int val = 0;
   preOrderCompare(n1,n2,&val);
-   fprintf(stderr,"preOrdercompare : %d\n",val);
+  //fprintf(stderr,"preOrdercompare : %d\n",val);
    if(val == 0){
      //free(val);
      return 1;
@@ -226,7 +220,7 @@ void preOrderCompare(Node * n1, Node * n2, int * value){
     *value = 1;
     return;
   }
-  fprintf(stderr,"n1: %d n2: %d prCmp :%d \n",n1->data.value,n2->data.value,*value);
+  //fprintf(stderr,"n1: %d n2: %d prCmp :%d \n",n1->data.value,n2->data.value,*value);
   if(n1->data.value != n2->data.value){
     *value = 1;
   }
@@ -242,25 +236,15 @@ void preOrderCompare(Node * n1, Node * n2, int * value){
  *@param value, the data value
  **/
 void removeTree(Tree * bst, Data value){
-  Node * toDelete = searchNode(bst,value);
-  
+  Node * toDelete = searchNode(bst,value);  
   if(toDelete != NULL){
-    fprintf(stderr,"data value: %d\n",toDelete->data.value);
+    //fprintf(stderr,"data value: %d\n",toDelete->data.value);
     if(toDelete->left==NULL && toDelete->right==NULL){
-      //inOrderTraversal(bst->root);
-      fprintf(stderr,"case 1\n");
       removeLeaf(bst,toDelete); // leaf node
-      //inOrderTraversal(bst->root);
     }else if(toDelete->left==NULL || toDelete->right==NULL){
-      //inOrderTraversal(bst->root);
-      fprintf(stderr,"case 2\n");
       shortCircuit(bst,toDelete);// has one child
-      //inOrderTraversal(bst->root);
     }else{
-      //inOrderTraversal(bst->root);
-      fprintf(stderr,"case 3\n");
       promotion(bst,toDelete);// has two children
-      //inOrderTraversal(bst->root);
     }    
   }
 }
@@ -309,7 +293,6 @@ Node * searchNodeHelper(Node * n, Data d){
  *@param n,the leaf node
  **/
 void removeLeaf(Tree * bst, Node * n){
-  //return;
   if(n == bst->root){
     bst->root = NULL;
   }else if(n == n->parent->left){
@@ -320,7 +303,6 @@ void removeLeaf(Tree * bst, Node * n){
     n->parent = NULL;
   }
   freeNode(n);
-  //return bst;
 }
 
 /**
@@ -416,12 +398,7 @@ void postOrderDeletion(Tree * bst,Node * n){
  *@param the pointer to a Node
  **/
 void freeNode(Node * n){
-  //free(&(n->data));
-  //free(n->left);
-  //free(n->right);
-  //free(n->parent);
-  //&(n->data) = NULL;
-  //freeData(n->data);
+
   n->left = NULL;
   n->right = NULL;
   n->parent = NULL;
@@ -432,6 +409,9 @@ void freeNode(Node * n){
   free(n);
 }
 
+/**
+ *helper function to prnt in Order
+ **/
 void inOrderTraversal(Node * n){
   if(n==NULL){
     return;
