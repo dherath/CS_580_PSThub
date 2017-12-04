@@ -31,6 +31,7 @@ Tree * newTree(){
   t->clone = cloneTree;
   t->compare = compareTree;
   t->removeData = removeTree;
+  t->delete = deleteTree;
 
   t->traversal=inOrderTraversal;
   
@@ -385,6 +386,30 @@ Node * searchRightMin( Node * n){
   return n;
 }
 
+/**
+ *deltes a given bst
+ *@param bst, the pointer to a tree
+ **/
+void deleteTree(Tree * bst){
+  while(bst->root != NULL){
+    postOrderDeletion(bst,bst->root);
+  }
+  free(bst->root);
+  free(bst);
+}
+
+/**
+ *helper function: post order deletion
+ *@param n, the node
+ **/
+void postOrderDeletion(Tree * bst,Node * n){
+  if(n==NULL){
+    return;
+  }
+  postOrderDeletion(bst,n->left);
+  postOrderDeletion(bst,n->right);
+  removeLeaf(bst,n);
+}
 
 /**
  *frees the memory of a Node

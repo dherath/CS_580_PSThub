@@ -185,7 +185,7 @@ int main(){
   assert(bst->root == NULL);
   
   printf("\n\t\tTest #15: Passed ...\n\n");
-  /*
+  
   printf("\n\t=========Test #16: Delete Tree===========\n\n");
 
   bst->delete(bst);
@@ -197,6 +197,6 @@ int main(){
   test13->delete(test13);
   test14->delete(test14);
 
-  printf("\n\t\tTest #16 Passed: Don't Forget to run valgrind and submit ...\n\n");*/
+  printf("\n\t\tTest #16 Passed: Don't Forget to run valgrind and submit ...\n\n");
   return 0;
 }

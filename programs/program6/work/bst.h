@@ -33,8 +33,9 @@ typedef struct Tree{
   struct Tree * (* clone)(struct Tree * bst);
   int (* compare)(struct Tree * bst, struct Tree * new_bst);
   void (*removeData)(struct Tree * bst, Data value);
-
+  void (*delete)(struct Tree * bst);
   void (* traversal)(struct Node * n);
+  
 }Tree;
 
 //----- functions------------------
@@ -56,6 +57,7 @@ Data * searchTree(Tree * bst, Data value);
 Tree * cloneTree(Tree * bst);
 int compareTree(Tree * bst, Tree * new_bst);
 void removeTree(Tree * bst, Data value);
+void deleteTree(Tree * bst);
 
 //----- helper functions-----------
 
@@ -67,8 +69,8 @@ void removeLeaf(Tree * bst, Node * n);
 void shortCircuit(Tree * bst, Node * n);
 void promotion(Tree * bst, Node * n);
 Node * searchRightMin(Node * n);
-void freeData(Data d);
-
+void postOrderDeletion(Tree * bst, Node * n);
+//void freeData(Data d);
 void inOrderTraversal(Node * n);
 
 #endif
