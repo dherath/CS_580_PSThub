@@ -89,13 +89,13 @@ int main(){
 
   printf("\n\t=========Test #9: Remove a Leaf Node ===========\n\n");
 
-  fprintf(stderr,"\nbst tree : \n");
-  bst->traversal(bst->root);
+  //fprintf(stderr,"\nbst tree : \n");
+  //bst->traversal(bst->root);
   
   bst->removeData(bst, (Data) {1});
 
-  fprintf(stderr,"\nbst tree : \n");
-  bst->traversal(bst->root);
+  //fprintf(stderr,"\nbst tree : \n");
+  //bst->traversal(bst->root);
   
   Tree * test9 = newTree();
   int test9_data[] = {5,3,10,4,8,2,7,9,6,12,11,13};
@@ -105,14 +105,14 @@ int main(){
 
   }
   
-  fprintf(stderr,"\ntest9 tree : \n");
-  test9->traversal(test9->root);
+  //fprintf(stderr,"\ntest9 tree : \n");
+  //test9->traversal(test9->root);
   
   compare_result = bst->compare(bst, test9);
   assert(compare_result == 1);
 
   printf("\n\t\tTest #9: Passed ...\n\n");
-  /*
+  
   printf("\n\t=========Test #10: Remove Single Child Node using Short Circuit ===========\n\n");
   //bst = test9;
   bst->removeData(bst, (Data) {7});
@@ -124,7 +124,7 @@ int main(){
   compare_result = bst->compare(bst, test10);
   assert(compare_result == 1);
   printf("\n\t\tTest #10: Passed ...\n\n");
-  
+  /*
   printf("\n\t=========Test #11: Remove Two Child Node using Promotion with Leaf Node ===========\n\n");
   //bst= test10;
   bst->removeData(bst, (Data) {10});

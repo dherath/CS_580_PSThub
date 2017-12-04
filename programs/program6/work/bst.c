@@ -328,7 +328,33 @@ void removeLeaf(Tree * bst, Node * n){
  *@param n, the node 
  **/
 void shortCircuit(Tree * bst,Node * n){
-
+  if(n==bst->root){
+    if(n->left !=0){
+      bst->root = n->left;
+      freeNode(n);
+    }else{
+      bst->root = n->right;
+      freeNode(n);
+    }
+  }else if(n==n->parent->left){
+    if(n->left != 0){
+      n->parent->left = n->left;
+      n->left->parent = n->parent;
+    }else{
+      n->parent->left = n->right;
+      n->right->parent = n->parent;
+    }
+    freeNode(n);
+  }else{
+    if(n->left !=0){
+      n->parent->right = n->left;
+      n->left->parent = n->parent;
+    }else{
+      n->parent->right = n->right;
+      n->right->parent = n->parent;
+    }
+    freeNode(n);
+  } 
 }
 
 /**
@@ -365,6 +391,10 @@ void freeNode(Node * n){
   //free(n->parent);
   //&(n->data) = NULL;
   //freeData(n->data);
+  n->left = NULL;
+  n->right = NULL;
+  n->parent = NULL;
+  
   free(n->left);
   free(n->right);
   free(n->parent);
