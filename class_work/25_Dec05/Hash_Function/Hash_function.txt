@@ -1,0 +1,14 @@
+
+1)
+
+f = k % sizeOfArray
+
+if input was string -> convert to int first
+
+2)
+
+ Heap(max or min)
+ (initial sort can be more) linked list
+ Dictionary(Hash)
+ balanced BST
+

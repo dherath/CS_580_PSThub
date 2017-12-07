@@ -1,0 +1,64 @@
+Jerome Dinal Herath
+
+table size - 11
+
+Chaining
+
+|->44
+|->12
+|
+|->36->80
+|->26->92->59
+|->5->60
+|
+|->40
+|
+|->42
+|
+
+linear probing
+
+|44
+|12
+|80
+|36
+|26
+|5
+|92
+|59
+|40
+|42
+|60
+
+double hashing
+
+
+resizing
+
+|44 
+|
+|
+|
+|26   
+|5
+|
+|
+|
+|42
+|
+
+after collision 26,92
+resize to 17 or 19 ?
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
