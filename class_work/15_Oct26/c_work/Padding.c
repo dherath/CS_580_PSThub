@@ -6,9 +6,10 @@
 // B no - B00708543
 
 struct Data{
-  int i;
-  char word[1];//changed buffer size from here
+  //int i;
+  char word[5];//changed buffer size from here
   //double val;
+  //char c;
   //char * c;
 };
 
