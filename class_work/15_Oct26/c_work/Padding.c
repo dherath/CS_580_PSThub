@@ -8,7 +8,8 @@
 struct Data{
   int i;
   char word[1];//changed buffer size from here
-  double val;
+  //double val;
+  //char * c;
 };
 
 int main(){
